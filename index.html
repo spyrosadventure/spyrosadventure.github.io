@@ -147,6 +147,17 @@
     #chargertemplates button:hover {
       background-color: #5000cc;
     }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-group label {
+      margin-left: 8px;
+    }
+
   </style>
 </head>
 <body>
@@ -163,18 +174,23 @@
       <option value="6">Skylanders2017 : 6</option>
     </select>
 
-    <label>
-      <input type="checkbox" id="bool1_check"> Repose?
-    </label>
-    <label>
-      <input type="checkbox" id="bool2_check"> AltDeco?
-    </label>
-    <label>
-      <input type="checkbox" id="bool3_check"> Lightcore?
-    </label>
-    <label>
-      <input type="checkbox" id="bool4_check"> Supercharger?
-    </label>
+    <div class="checkbox-group">
+      <input type="checkbox" id="bool1_check">
+      <label for="bool1_check">Repose?</label>
+    </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="bool2_check">
+      <label for="bool2_check">AltDeco?</label>
+    </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="bool3_check">
+      <label for="bool3_check">Lightcore?</label>
+    </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="bool4_check">
+      <label for="bool4_check">Supercharger?</label>
+    </div>
+
 
     <label for="deco_id_combobox">DecoID:</label>
     <select id="deco_id_combobox"></select>
