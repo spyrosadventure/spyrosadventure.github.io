@@ -148,10 +148,11 @@
       background-color: #5000cc;
     }
 
-    .checkbox-group {
-      display: flex;
+    .checkbox-container {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px;
       align-items: center;
-      margin-bottom: 10px;
     }
 
     .checkbox-group label {
@@ -174,16 +175,16 @@
       <option value="6">Skylanders2017 : 6</option>
     </select>
 
-    <input type="checkbox" id="bool1_check">
-    <label for="bool1_check">Repose?</label>
-    <input type="checkbox" id="bool2_check">
-    <label for="bool2_check">AltDeco?</label>
-    <input type="checkbox" id="bool3_check">
-    <label for="bool3_check">Lightcore?</label>
-    <input type="checkbox" id="bool4_check">
-    <label for="bool4_check">Supercharger?</label>
-
-
+    <div class="checkbox-container">
+      <input type="checkbox" id="bool1_check">
+      <label for="bool1_check">Repose?</label>
+      <input type="checkbox" id="bool2_check">
+      <label for="bool2_check">AltDeco?</label>
+      <input type="checkbox" id="bool3_check">
+      <label for="bool3_check">Lightcore?</label>
+      <input type="checkbox" id="bool4_check">
+      <label for="bool4_check">Supercharger?</label>
+    </div>
 
     <label for="deco_id_combobox">DecoID:</label>
     <select id="deco_id_combobox"></select>
