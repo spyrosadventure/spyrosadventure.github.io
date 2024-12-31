@@ -151,12 +151,12 @@
     .checkbox-container {
       display: grid;
       grid-template-columns: repeat(2, auto);
-      gap: 10px;
+      column-gap: 20px;
+      row-gap: 10px;
       align-items: center;
     }
-
-    .checkbox-group label {
-      margin-left: 8px;
+    .checkbox-container input {
+      margin-right: 5px;
     }
 
   </style>
@@ -176,15 +176,24 @@
     </select>
 
     <div class="checkbox-container">
-      <input type="checkbox" id="bool1_check">
-      <label for="bool1_check">Repose?</label>
-      <input type="checkbox" id="bool2_check">
-      <label for="bool2_check">AltDeco?</label>
-      <input type="checkbox" id="bool3_check">
-      <label for="bool3_check">Lightcore?</label>
-      <input type="checkbox" id="bool4_check">
-      <label for="bool4_check">Supercharger?</label>
+      <div>
+        <input type="checkbox" id="bool1_check">
+        <label for="bool1_check">Repose?</label>
+      </div>
+      <div>
+        <input type="checkbox" id="bool2_check">
+        <label for="bool2_check">AltDeco?</label>
+      </div>
+      <div>
+        <input type="checkbox" id="bool3_check">
+        <label for="bool3_check">Lightcore?</label>
+      </div>
+      <div>
+        <input type="checkbox" id="bool4_check">
+        <label for="bool4_check">Supercharger?</label>
+      </div>
     </div>
+
 
     <label for="deco_id_combobox">DecoID:</label>
     <select id="deco_id_combobox"></select>
