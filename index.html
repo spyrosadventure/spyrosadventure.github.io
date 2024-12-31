@@ -1,1 +1,339 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variant ID Generator</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
 
+    .container {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin: 50px auto;
+      padding: 40px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    #header {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    select,
+    input[type="checkbox"],
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    select:hover,
+    button:hover {
+      border-color: #007bff;
+      background-color: #f8f9fa;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #variant_id_label,
+    #binary_values_label {
+      margin: 10px 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #007bff;
+    }
+
+    #footer {
+      font-size: 12px;
+      margin-top: 30px;
+      color: #888;
+    }
+
+    #footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    #footer a:hover {
+      text-decoration: underline;
+    }
+
+    #templates {
+      margin-top: 30px;
+    }
+
+    #templates h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    #templates button {
+      margin: 5px 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #333;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    #templates button:hover {
+      background-color: #555;
+    }
+
+    /* Custom template button styles */
+    #giantstemplates button {
+      background-color: #ff6600;
+    }
+
+    #giantstemplates button:hover {
+      background-color: #cc5200;
+    }
+
+    #swaptemplates button {
+      background-color: #3baed4;
+    }
+
+    #swaptemplates button:hover {
+      background-color: #237691;
+    }
+
+    #traptemplates button {
+      background-color: #ff3333;
+    }
+
+    #traptemplates button:hover {
+      background-color: #cc0000;
+    }
+
+    #chargertemplates button {
+      background-color: #6a00ff;
+    }
+
+    #chargertemplates button:hover {
+      background-color: #5000cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="header">Variant ID Generator for Skylanders</div>
+    <label for="year_entry">Year Code:</label>
+    <select id="year_entry">
+      <option value="0">Spyro's Adventure : 0</option>
+      <option value="1">Giants : 1</option>
+      <option value="2">Swap Force : 2</option>
+      <option value="3">Trap Team : 3</option>
+      <option value="4">Superchargers : 4</option>
+      <option value="5">Imaginators : 5</option>
+      <option value="6">Skylanders2017 : 6</option>
+    </select>
+
+    <label>
+      <input type="checkbox" id="bool1_check"> Repose?
+    </label>
+    <label>
+      <input type="checkbox" id="bool2_check"> AltDeco?
+    </label>
+    <label>
+      <input type="checkbox" id="bool3_check"> Lightcore?
+    </label>
+    <label>
+      <input type="checkbox" id="bool4_check"> Supercharger?
+    </label>
+
+    <label for="deco_id_combobox">DecoID:</label>
+    <select id="deco_id_combobox"></select>
+
+    <button onclick="generateVariantID()">Generate Variant ID</button>
+
+    <label id="variant_id_label"></label>
+    <label id="binary_values_label"></label>
+
+    <div id="footer">
+      This wouldn’t have been possible without <a href="https://github.com/NefariousTechSupport/Runes/blob/master/Docs/SkylanderFormat.md#sub-type" target="_blank">Runes by NefariousTechSupport</a>.
+    </div>
+
+    <!-- Variant ID Templates, Just Basic Ones -->
+    <div id="templates">
+      <h2>Variant ID Templates</h2>
+      <button onclick="applyTemplate('Template 1')">Lightcore Punch Pop Fizz</button>
+      <div id="giantstemplates">
+        <button onclick="applyTemplate('Template 2')">Series 2</button>
+      </div>
+      <div id="swaptemplates">
+        <button onclick="applyTemplate('Template 3')">Series 3</button>
+      </div>
+      <div id="traptemplates">
+        <button onclick="applyTemplate('Template 4')">Series 4</button>
+      </div>
+      <div id="chargertemplates">
+        <button onclick="applyTemplate('Template 5')">Series 5</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const decoIdMap = {
+      "Normal": 0,
+      "Repose1": 1,
+      "AlternateDeco": 2,
+      "Legendary": 3,
+      "Event": 4,
+      "Repose2": 5,
+      "LightDirect": 6,
+      "LightStored": 7,
+      "LightEnhanced": 8,
+      "Repose3": 9,
+      "Repose4": 10,
+      "Repose5": 11,
+      "Valentines": 12,
+      "Easter": 13,
+      "Winter": 14,
+      "Virtual": 15,
+      "Premium": 16,
+      "GlowDark": 17,
+      "StoneStatue": 18,
+      "GlitterSpectrum": 19,
+      "TreasureHunt2012": 20,
+      "Halloween": 21,
+      "TreasureHunt2013": 22,
+      "ColorShift": 23,
+      "WiiU": 24,
+      "TH_BestBuy": 25,
+      "TH_FritoLay": 26,
+      "TreasureHunt2014": 29,
+      "TreasureHunt2015": 30,
+      "Mobile": 31,
+      "Autism2016": 32, // it was originally called "austism2016" but im changing it, sorry tfb lol
+      "TreasureHunt2016": 33,
+    };
+
+    const yearEntry = document.getElementById("year_entry");
+    const bool1Check = document.getElementById("bool1_check");
+    const bool2Check = document.getElementById("bool2_check");
+    const bool3Check = document.getElementById("bool3_check");
+    const bool4Check = document.getElementById("bool4_check");
+    const decoIdCombobox = document.getElementById("deco_id_combobox");
+    const variantIdLabel = document.getElementById("variant_id_label");
+    const binaryValuesLabel = document.getElementById("binary_values_label");
+
+    function generateVariantID() {
+      const yearCode = parseInt(yearEntry.value);
+      const bool1 = bool1Check.checked ? 1 : 0;
+      const bool2 = bool2Check.checked ? 1 : 0;
+      const bool3 = bool3Check.checked ? 1 : 0;
+      const bool4 = bool4Check.checked ? 1 : 0;
+      const selectedDecoIdName = decoIdCombobox.value;
+      
+      const decoId = decoIdMap[selectedDecoIdName];
+
+      const yearBinary = ('0000' + yearCode.toString(2)).slice(-4);
+      const boolBinary = `${bool1}${bool2}${bool3}${bool4}`;
+      // cant believe this took me like 2 weeks. FINALLY DECO IDS OVER 15!!!
+      const decoIdBinary = ('00000000' + decoId.toString(2)).slice(-8);
+
+      const variantId = `${yearBinary}${boolBinary}${decoIdBinary}`;
+      variantIdLabel.innerText = "Binary: " + variantId;
+
+      const combinedBinary = yearBinary + boolBinary + decoIdBinary;
+      const combinedDecimal = parseInt(combinedBinary, 2);
+      binaryValuesLabel.innerText = `Variant ID: ${combinedDecimal}`;
+    }
+
+    // Populate DecoID combobox
+    Object.keys(decoIdMap).forEach(function(key) {
+      const option = document.createElement("option");
+      option.text = key;
+      decoIdCombobox.add(option);
+    });
+
+    // Function to apply Variant ID templates
+    function applyTemplate(templateName) {
+      switch (templateName) {
+        case 'Template 1':
+          yearEntry.value = '1';
+          bool1Check.checked = false;
+          bool2Check.checked = true;
+          bool3Check.checked = true;
+          bool4Check.checked = false;
+          decoIdCombobox.value = 'AlternateDeco';
+          generateVariantID();
+          break;
+        case 'Template 2':
+          yearEntry.value = '1';
+          bool1Check.checked = true;
+          bool2Check.checked = false;
+          bool3Check.checked = false;
+          bool4Check.checked = false;
+          decoIdCombobox.value = 'Repose1';
+          generateVariantID();
+        break;
+        case 'Template 3':
+          yearEntry.value = '2';
+          bool1Check.checked = true;
+          bool2Check.checked = false;
+          bool3Check.checked = false;
+          bool4Check.checked = false;
+          decoIdCombobox.value = 'Repose2';
+          generateVariantID();
+        break;
+        case 'Template 4':
+          yearEntry.value = '3';
+          bool1Check.checked = true;
+          bool2Check.checked = false;
+          bool3Check.checked = false;
+          bool4Check.checked = false;
+          decoIdCombobox.value = 'Repose3';
+          generateVariantID();
+        break;
+        case 'Template 5':
+          yearEntry.value = '4';
+          bool1Check.checked = true;
+          bool2Check.checked = false;
+          bool3Check.checked = false;
+          bool4Check.checked = false;
+          decoIdCombobox.value = 'Repose4';
+          generateVariantID();
+        break;
+        default:
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
