@@ -1,358 +1,551 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Variant ID Generator</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://web.archive.org/web/20120605181338/http://universe.skylanders.com/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en" lang="en" style="--wm-toolbar-height: 107px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style><script async="" src="./Skylanders Spyro’s Universe – BETA_files/siteConfig"></script><script type="text/javascript" async="" src="./Skylanders Spyro’s Universe – BETA_files/ga.js.download"></script><script src="./Skylanders Spyro’s Universe – BETA_files/athena.js.download" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app201.us.archive.org';v.server_ms=1106;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="./Skylanders Spyro’s Universe – BETA_files/bundle-playback.js.download" charset="utf-8"></script>
+<script type="text/javascript" src="./Skylanders Spyro’s Universe – BETA_files/wombat.js.download" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="./Skylanders Spyro’s Universe – BETA_files/ruffle.js.download"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("http://universe.skylanders.com/","20120605181338","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1338920018");
+</script>
+<link rel="stylesheet" type="text/css" href="./Skylanders Spyro’s Universe – BETA_files/banner-styles.css">
+<link rel="stylesheet" type="text/css" href="./Skylanders Spyro’s Universe – BETA_files/iconochive.css">
+<!-- End Wayback Rewrite JS Include -->
 
-    .container {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      margin: 50px auto;
-      padding: 40px;
-      max-width: 500px;
-      text-align: center;
-    }
+    
+	  <title>Skylanders Spyro’s Universe – BETA </title>
+<link rel="shortcut icon" href="https://web.archive.org/web/20120605181338im_/http://universe.skylanders.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://web.archive.org/web/20120605181338im_/http://universe.skylanders.com/favicon.ico" type="image/x-icon">
 
-    #header {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #555;
-    }
+<link href="./Skylanders Spyro’s Universe – BETA_files/homepage.css" media="screen" rel="stylesheet" type="text/css">
 
-    label {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
 
-    select,
-    input[type="checkbox"],
-    button {
-      display: block;
-      width: 100%;
-      margin-bottom: 20px;
-      padding: 12px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-      outline: none;
-      transition: all 0.3s;
-    }
 
-    select:hover,
-    button:hover {
-      border-color: #007bff;
-      background-color: #f8f9fa;
-    }
 
-    button {
-      background-color: #007bff;
-      color: #ffffff;
-      font-weight: bold;
-    }
+<link href="./Skylanders Spyro’s Universe – BETA_files/skylanders.css" media="screen" rel="stylesheet" type="text/css">
+<link href="./Skylanders Spyro’s Universe – BETA_files/shadowbox.css" media="screen" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+  <link href="http://cdn.skylanders.com/web/prod/public/stylesheets/less/base/ie.css?1338308609" media="screen" rel="stylesheet" type="text/css" />
+<![endif]-->
 
-    button:hover {
-      background-color: #0056b3;
-    }
 
-    #variant_id_label,
-    #binary_values_label {
-      margin: 10px 0;
-      font-size: 16px;
-      font-weight: 500;
-      color: #007bff;
-    }
+<script src="./Skylanders Spyro’s Universe – BETA_files/base_packaged.js.download" type="text/javascript"></script>
 
-    #footer {
-      font-size: 12px;
-      margin-top: 30px;
-      color: #888;
-    }
 
-    #footer a {
-      color: #007bff;
-      text-decoration: none;
-    }
+<script src="./Skylanders Spyro’s Universe – BETA_files/jquery-1.7.2.js.download" type="text/javascript"></script>
 
-    #footer a:hover {
-      text-decoration: underline;
-    }
+<script type="text/javascript">
+//<![CDATA[
+jQuery.noConflict();
+//]]>
+</script>
 
-    #templates {
-      margin-top: 30px;
-    }
 
-    #templates h2 {
-      font-size: 20px;
-      margin-bottom: 15px;
-      color: #555;
-    }
 
-    #templates button {
-      margin: 5px 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background-color: #333;
-      color: #ffffff;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
 
-    #templates button:hover {
-      background-color: #555;
-    }
 
-    /* Custom template button styles */
-    #giantstemplates button {
-      background-color: #ff6600;
-    }
+<script src="./Skylanders Spyro’s Universe – BETA_files/application.js.download" type="text/javascript"></script>
 
-    #giantstemplates button:hover {
-      background-color: #cc5200;
-    }
+<script src="./Skylanders Spyro’s Universe – BETA_files/shadowbox.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+Shadowbox.init({ enableKeys: false,  displayNav: false });
+//]]>
+</script>
 
-    #swaptemplates button {
-      background-color: #3baed4;
-    }
 
-    #swaptemplates button:hover {
-      background-color: #237691;
-    }
 
-    #traptemplates button {
-      background-color: #ff3333;
-    }
 
-    #traptemplates button:hover {
-      background-color: #cc0000;
-    }
+<link href="./Skylanders Spyro’s Universe – BETA_files/base_packaged.css" media="screen" rel="stylesheet" type="text/css">
 
-    #chargertemplates button {
-      background-color: #6a00ff;
-    }
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+<![endif]-->
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
 
-    #chargertemplates button:hover {
-      background-color: #5000cc;
-    }
+  _gaq.push(['_setAccount', 'UA-4618468-24']);
+  _gaq.push(['_setDomainName', 'universe.skylanders.com']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push([ '_setCustomVar', 1, 'lang', 'en_US', 1 ]);
 
-    .checkbox-container {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      column-gap: 20px;
-      row-gap: 10px;
-      align-items: center;
-    }
-    .checkbox-container input {
-      margin-right: 5px;
-    }
+  _gaq.push(['_setAccount', 'UA-4618468-22']);
+  _gaq.push(['_setDomainName', 'universe.skylanders.com']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push([ '_setCustomVar', 1, 'lang', 'en_US', 1 ]);
 
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div id="header">Variant ID Generator for Skylanders</div>
-    <label for="year_entry">Year Code:</label>
-    <select id="year_entry">
-      <option value="0">Spyro's Adventure : 0</option>
-      <option value="1">Giants : 1</option>
-      <option value="2">Swap Force : 2</option>
-      <option value="3">Trap Team : 3</option>
-      <option value="4">Superchargers : 4</option>
-      <option value="5">Imaginators : 5</option>
-      <option value="6">Skylanders2017 : 6</option>
-    </select>
 
-    <div class="checkbox-container">
-      <div>
-        <input type="checkbox" id="bool1_check">
-        <label for="bool1_check">Repose?</label>
-      </div>
-      <div>
-        <input type="checkbox" id="bool2_check">
-        <label for="bool2_check">AltDeco?</label>
-      </div>
-      <div>
-        <input type="checkbox" id="bool3_check">
-        <label for="bool3_check">Lightcore?</label>
-      </div>
-      <div>
-        <input type="checkbox" id="bool4_check">
-        <label for="bool4_check">Supercharger?</label>
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://web.archive.org/web/20120605181338/https://ssl' : 'https://web.archive.org/web/20120605181338/http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+  <style>@font-face {
+              font-family: 'Open Sans Regular';
+              font-style: normal;
+              font-weight: 400;
+              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
+          }</style><style>@font-face {
+              font-family: 'Open Sans Bold';
+              font-style: normal;
+              font-weight: 800;
+              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/OpenSans-Bold.woff');
+          }</style><style>@font-face {
+              font-family: 'Open Sans ExtraBold';
+              font-style: normal;
+              font-weight: 800;
+              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-800.woff');
+          }</style></head>
+	<body id="app-homepage" class=" "><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display: block; direction: ltr; height: 107px;" toolbar-mode="auto"><template shadowrootmode="closed"><div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;" class="">
+<div id="donato" style="position: relative; width: 100%; height: 40px;">
+  <div id="donato-base" style="height: 40px;">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20120605181338/http%3A//universe.skylanders.com/" scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="https://web.archive.org/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0"></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="https://web.archive.org/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="http://universe.skylanders.com/" onfocus="this.focus();this.select();" style="flex:1;" autocomplete="off"><input type="hidden" name="type" value="replay"><input type="hidden" name="date" value="20120605181338"><input type="submit" value="Go">
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;"><a class="t" href="https://web.archive.org/web/*/http://universe.skylanders.com/" title="See a list of every capture for this URL">155 captures</a><div class="r" title="Timespan for captures of this URL">14 Oct 2011 - 7 Apr 2016</div></div>
+        <div class="k">
+          <a href="https://web.archive.org/web/20150901000000/http://universe.skylanders.com/" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="750" height="27" border="0"></canvas>
+            <div class="yt" style="display: none; width: 25px; height: 27px; left: 475px;"></div><div class="mt" style="display: none; width: 2px; height: 27px; left: 492px;"></div></div>
+          </a>
+        </div>
       </div>
     </div>
-
-
-    <label for="deco_id_combobox">DecoID:</label>
-    <select id="deco_id_combobox"></select>
-
-    <button onclick="generateVariantID()">Generate Variant ID</button>
-
-    <label id="variant_id_label"></label>
-    <label id="binary_values_label"></label>
-
-    <div id="footer">
-      This wouldn’t have been possible without <a href="https://github.com/NefariousTechSupport/Runes/blob/master/Docs/SkylanderFormat.md#sub-type" target="_blank">Runes by NefariousTechSupport</a>.
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20120503072442/http://universe.skylanders.com/" title="03 May 2012"><strong>May</strong></a></td>
+            <td class="c" id="displayMonthEl" title="You are here: 18:13:38 Jun 05, 2012">Jun</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20120707172200/http://universe.skylanders.com/" title="07 Jul 2012"><strong>Jul</strong></a></td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><a href="https://web.archive.org/web/20120602035915/http://universe.skylanders.com:80/" title="03:59:15 Jun 02, 2012"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_prv_on.png" alt="Previous capture" width="14" height="16" border="0"></a></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 18:13:38 Jun 05, 2012">05</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20120607041051/http://universe.skylanders.com:80/" title="04:10:51 Jun 07, 2012"><img src="https://web-static.archive.org/_static/images/toolbar/wm_tb_nxt_on.png" alt="Next capture" width="14" height="16" border="0"></a></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2011</td>
+            <td class="c" id="displayYearEl" title="You are here: 18:13:38 Jun 05, 2012">2012</td>
+            <td class="f" nowrap="nowrap"><a href="https://web.archive.org/web/20130620145717/http://universe.skylanders.com:80/" title="20 Jun 2013"><strong>2013</strong></a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <!-- Variant ID Templates, Just Basic Ones -->
-    <div id="templates">
-      <h2>Variant ID Templates</h2>
-      <button onclick="applyTemplate('Template 1')">Lightcore Punch Pop Fizz</button>
-      <div id="giantstemplates">
-        <button onclick="applyTemplate('Template 2')">Series 2</button>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/#" title="Share via My Web Archive" style="display: none;">
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in" style="display: inline-block;">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web" style="display: none;"></span>
+        </span>
+                <a class="xxs" href="https://help.archive.org/help/category/the-wayback-machine/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
       </div>
-      <div id="swaptemplates">
-        <button onclick="applyTemplate('Template 3')">Series 3</button>
+      <div id="wm-share" class="xxs">
+        <a href="https://web.archive.org/web/20120605181338/http://web.archive.org/screenshot/http://universe.skylanders.com/" id="wm-screenshot" title="screenshot" style="visibility: hidden;">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/#" data-url="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/#" data-url="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
       </div>
-      <div id="traptemplates">
-        <button onclick="applyTemplate('Template 4')">Series 4</button>
-      </div>
-      <div id="chargertemplates">
-        <button onclick="applyTemplate('Template 5')">Series 5</button>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
       </div>
     </div>
   </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+            <div style="display:inline-block;vertical-align:top;width:50%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/webwidecrawl);"></span>
+		Organization: <a style="color:#33f;" href="https://archive.org/details/webwidecrawl" target="_new"><span class="wm-title">Internet Archive</span></a>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  The Internet Archive discovers and captures web pages through many different web crawls.
+
+At any given time several distinct crawls are running, some for months, and some every day or longer.
+
+View the web archive through the <a href="http://archive.org/web/web.php">Wayback Machine</a>.
+	</div>
+	      </div>
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/liveweb)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/liveweb" target="_new"><span class="wm-title">Live Web Proxy Crawls</span></a></div>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Content crawled via the <a href="http://archive.org/web/web.php">Wayback Machine</a> Live Proxy mostly by the Save Page Now feature on web.archive.org.
+<br><br>
+Liveweb proxy is a component of Internet Archive’s wayback machine project. The liveweb proxy captures the content of a web page in real time, archives it into a ARC or WARC file and returns the ARC/WARC record back to the wayback machine to process. The recorded ARC/WARC file becomes part of the wayback machine in due course of time.
+<br>
+	</div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading"></div>
+    </div>
+    </div>
+  </div></div></div><link rel="stylesheet" type="text/css" href="./Skylanders Spyro’s Universe – BETA_files/banner-styles.css"><link rel="stylesheet" type="text/css" href="./Skylanders Spyro’s Universe – BETA_files/iconochive.css"><div class="wb-autocomplete-suggestions "></div></template>
+</div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20120605181338/http://universe.skylanders.com/</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(750,27,25,2,"web","http://universe.skylanders.com/","20120605181338",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=p7PEIJWi","https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+    
+		
+    
+	  <a name="top"></a>
+	  <div id="blackout" style="display:none;"></div>
+  	<div id="container-main">
+  	  <!-- <div id='cdo-bar' style='display:none;'></div> -->
+  	  <script id="sso-bar-script" src="./Skylanders Spyro’s Universe – BETA_files/sso.bar.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+  var url    = 'https://web.archive.org/web/20120605181338/http://universe.skylanders.com/users/change_language_code?current_url=%2F';
+  var config = {
+    siteId: 'skylanders',
+    scriptId: 'sso-bar-script',
+    containerId : 'cdo-bar',
+    loginRedirectUrl : 'https://web.archive.org/web/20120605181338/http://universe.skylanders.com/ucd/return',
+    communityId: 'skylanders',
+    logoutUrl: 'http://'+window.location.hostname+'/',
+    locale : 'en_US',
+    locales : {
+       "en_US":{
+          "href":url+"&language_code=eng",
+          "title":"United States"
+       },
+       "en_GB":{
+          "href":url+"&language_code=eng",
+          "title":"United Kingdom"
+       },
+       "en_AU":{
+          "href":url+"&language_code=eng",
+          "title":"Australia"
+       },
+       "pt_BR":{
+          "href":url+"&language_code=por",
+          "title":"Brasil"
+       },
+       "en_CA":{
+          "href":url+"&language_code=eng",
+          "title":"Canadian English"
+       },
+       "fr_CA":{
+          "href":url+"&language_code=fra",
+          "title":"Canadian French"
+       },
+       "dk_DK":{
+          "href":url+"&language_code=dan",
+          "title":"Denmark"
+       },
+       "fi_FI":{
+          "href":url+"&language_code=fin",
+          "title":"Finland"
+       },
+       "fr_FR":{
+          "href":url+"&language_code=fra",
+          "title":"France"
+       },
+       "de_DE":{
+          "href":url+"&language_code=deu",
+          "title":"Germany"
+       },
+       "it_IT":{
+          "href":url+"&language_code=ita",
+          "title":"Italy"
+       },
+       "nl_NL":{
+          "href":url+"&language_code=nld",
+          "title":"Netherlands"
+       },
+       "no_NO":{
+          "href":url+"&language_code=nno",
+          "title":"Norway"
+       },
+       "es_ES":{
+          "href":url+"&language_code=spa",
+          "title":"Spain"
+       },
+       "se_SE":{
+          "href":url+"&language_code=swe",
+          "title":"Sweden"
+       }
+     }
+  }
+  var ssobar = new SSO.Bar(config);
+
+//]]>
+</script>
+    	<header id="header">
+</header><!--#header-->
+      <div id="content-container-2col">
+        <div id="navigation">
+  <div class="nav-holder">
+    <div class="nav-items">
+        <div class="item  active ">
+          <div class="end1"></div>
+          <div class="middle"><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/">Home</a></div>
+          <div class="end2"></div>
+        </div>
+        <div class="item ">
+          <div class="end1"></div>
+          <div class="middle"><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/parents">Parents</a></div>
+          <div class="end2"></div>
+        </div>
+        <div class="item community ">
+          <div class="end1"></div>
+          <div class="middle"><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/community">Community</a></div>
+          <div class="end2"></div>
+        </div>
+        <div class="logo"><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/"></a></div>
+        <div class="item fun-stuff ">
+          <div class="end1"></div>
+          <div class="middle"><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/fun-stuff">Fun Stuff</a></div>
+          <div class="end2"></div>
+        </div>
+        <div class="item ">
+          <div class="end1"></div>
+          <div class="middle"><a href="https://web.archive.org/web/20120605181338/http://www.skylanders.com/where-to-buy" target="_blank">Where To Buy</a></div>
+          <div class="end2"></div>
+        </div>
+        <div class="item no-margin ">
+          <div class="end1"></div>
+          <div class="middle"><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/help">Help/Tutorials</a></div>
+          <div class="end2"></div>
+        </div>
+    </div>
+  </div>
+<div class="clear"></div>
+</div>
+
+        
+        
+
+
+
+        <div id="grassland"></div>
+        <div id="content-primary">
+					<style>
+#sb-wrapper-inner{background:url('/web/20120605181338im_/http://universe.skylanders.com/images/shadowbox/frame.png') no-repeat;position:relative;overflow:hidden;height:100px;}
+</style>
+
+<div class="primary-column">
+  <div id="video">
+    <div id="video-holder">
+    <link href="./Skylanders Spyro’s Universe – BETA_files/video.css" type="text/css" rel="stylesheet">
+<script src="./Skylanders Spyro’s Universe – BETA_files/video.js.download" type="text/javascript" charset="utf-8"></script>
+<div id="spyro_intro" class="video-js vjs-default-skin vjs-playing" width="642" height="395" style="width: 642px; height: 395px;"><video id="spyro_intro_html5_api" class="vjs-tech" autoplay="" preload="auto" data-setup="{}" src="https://web.archive.org/web/20120605181338oe_/http://cdn.skylanders.com/web/prod/media/videos/eng/index_movie.mp4" poster="null">
   
-  <script>
-    const decoIdMap = {
-      "Normal": 0,
-      "Repose1": 1,
-      "AlternateDeco": 2,
-      "Legendary": 3,
-      "Event": 4,
-      "Repose2": 5,
-      "LightDirect": 6,
-      "LightStored": 7,
-      "LightEnhanced": 8,
-      "Repose3": 9,
-      "Repose4": 10,
-      "Repose5": 11,
-      "Valentines": 12,
-      "Easter": 13,
-      "Winter": 14,
-      "Virtual": 15,
-      "Premium": 16,
-      "GlowDark": 17,
-      "StoneStatue": 18,
-      "GlitterSpectrum": 19,
-      "TreasureHunt2012": 20,
-      "Halloween": 21,
-      "TreasureHunt2013": 22,
-      "ColorShift": 23,
-      "WiiU": 24,
-      "TH_BestBuy": 25,
-      "TH_FritoLay": 26,
-      "TreasureHunt2014": 29,
-      "TreasureHunt2015": 30,
-      "Mobile": 31,
-      "Autism2016": 32, // it was originally called "austism2016" but im changing it, sorry tfb lol
-      "TreasureHunt2016": 33,
-    };
-
-    const yearEntry = document.getElementById("year_entry");
-    const bool1Check = document.getElementById("bool1_check");
-    const bool2Check = document.getElementById("bool2_check");
-    const bool3Check = document.getElementById("bool3_check");
-    const bool4Check = document.getElementById("bool4_check");
-    const decoIdCombobox = document.getElementById("deco_id_combobox");
-    const variantIdLabel = document.getElementById("variant_id_label");
-    const binaryValuesLabel = document.getElementById("binary_values_label");
-
-    function generateVariantID() {
-      const yearCode = parseInt(yearEntry.value);
-      const bool1 = bool1Check.checked ? 1 : 0;
-      const bool2 = bool2Check.checked ? 1 : 0;
-      const bool3 = bool3Check.checked ? 1 : 0;
-      const bool4 = bool4Check.checked ? 1 : 0;
-      const selectedDecoIdName = decoIdCombobox.value;
+   &nbsp; &nbsp;
       
-      const decoId = decoIdMap[selectedDecoIdName];
+      
+  
+  
+  
+</video><img class="vjs-poster" src="./Skylanders Spyro’s Universe – BETA_files/video-poster-index.jpg" tabindex="-1" style="display: none;"><div class="vjs-text-track-display"></div><div class="vjs-loading-spinner" style="display: none;"><div class="ball1"></div><div class="ball2"></div><div class="ball3"></div><div class="ball4"></div><div class="ball5"></div><div class="ball6"></div><div class="ball7"></div><div class="ball8"></div></div><div class="vjs-big-play-button" role="button" tabindex="0" style="display: none;"><span></span></div><div class="vjs-controls vjs-fade-out"><div class="vjs-play-control vjs-control  vjs-playing" role="button" tabindex="0"><div><span class="vjs-control-text">Play</span></div></div><div class="vjs-fullscreen-control vjs-control " role="button" tabindex="0"><div><span class="vjs-control-text">Fullscreen</span></div></div><div class="vjs-current-time vjs-time-controls vjs-control"><div class="vjs-current-time-display">0:12</div></div><div class="vjs-time-divider"><div><span>/</span></div></div><div class="vjs-duration vjs-time-controls vjs-control"><div class="vjs-duration-display">1:01</div></div><div class="vjs-remaining-time vjs-time-controls vjs-control"><div class="vjs-remaining-time-display">-0:48</div></div><div class="vjs-progress-control vjs-control"><div role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-progress-holder"><div class="vjs-load-progress" style="width: 100%;"><span class="vjs-control-text">Loaded: 0%</span></div><div class="vjs-play-progress" style="width: 21.58%;"><span class="vjs-control-text">Progress: 0%</span></div><div class="vjs-seek-handle" style="left: 20.12%;"><span class="vjs-control-text">00:00</span></div></div></div><div class="vjs-volume-control vjs-control"><div role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" tabindex="0" class="vjs-volume-bar"><div class="vjs-volume-level" style="width: 90%;"><span class="vjs-control-text"></span></div><div class="vjs-volume-handle" style="left: 80%;"><span class="vjs-control-text"></span></div></div></div><div class="vjs-mute-control vjs-control" role="button" tabindex="0"><div><span class="vjs-control-text">Mute</span></div></div><div class="vjs-subtitles-button vjs-menu-button vjs-control " role="button" tabindex="0" style="display: none;"><div><span class="vjs-control-text">Subtitles</span></div><ul class="vjs-menu"><li class="vjs-menu-title">Subtitles</li><li class="vjs-menu-item" role="button" tabindex="0">Off</li></ul></div><div class="vjs-captions-button vjs-menu-button vjs-control " role="button" tabindex="0" style="display: none;"><div><span class="vjs-control-text">Captions</span></div><ul class="vjs-menu"><li class="vjs-menu-title">Captions</li><li class="vjs-menu-item" role="button" tabindex="0">Off</li></ul></div><div class="vjs-chapters-button vjs-menu-button vjs-control " role="button" tabindex="0" style="display: none;"><div><span class="vjs-control-text">Chapters</span></div><ul class="vjs-menu"><li class="vjs-menu-title">Chapters</li></ul></div></div></div>
 
-      const yearBinary = ('0000' + yearCode.toString(2)).slice(-4);
-      const boolBinary = `${bool1}${bool2}${bool3}${bool4}`;
-      // cant believe this took me like 2 weeks. FINALLY DECO IDS OVER 15!!!
-      const decoIdBinary = ('00000000' + decoId.toString(2)).slice(-8);
 
-      const variantId = `${yearBinary}${boolBinary}${decoIdBinary}`;
-      variantIdLabel.innerText = "Binary: " + variantId;
+    </div>
+  </div>
+</div><!--.primary-column-->
+<div class="secondary-column">
+  <!--top secondary column-->
 
-      const combinedBinary = yearBinary + boolBinary + decoIdBinary;
-      const combinedDecimal = parseInt(combinedBinary, 2);
-      binaryValuesLabel.innerText = `Variant ID: ${combinedDecimal}`;
+    <div id="players">
+      <div class="buttons">
+        <a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/ucd/register">New Players</a>
+        <a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/ucd/login">Returning Players</a>
+      </div><!--.buttons-->
+      
+  </div><!--#players-->
+    
+<div class="clear"></div>
+
+  
+    <div id="trigger-happy"></div>
+  
+</div>
+<div class="clear"></div>
+<div id="blocks" class="">
+  <div class="block no-margin">
+  <div class="top"><span>News/Blog</span></div>
+  <div class="middle">
+    <div class="middle-content">
+       <h1>Welcome, Portal Masters! </h1>
+<p>We’re proud to announce the latest and greatest way to bring your Skylanders toys to life: Skylanders Spyro’s Universe!</p>
+<p>Whether or not you own any of the figurines or a Portal of Power, you can now create an account and take charge of your very own Skyland! The universe is yours! Explore your Skyland—then customize it! As you level up your Skylander collection, you’ll unlock new lands and adventures! And since your friends can invite you to their Skylands as well, the action never ends!</p>
+<p>With pirates and other evil invaders lurking, you’ll have your hands full with a wide array of action-packed mini-games. Of course, when not battling the bad guys, you’re free to travel to The Mainland, your Lair, or invite friends to explore your Skyland. Your guide, Eon, will explain everything you need to know!</p>
+<p>Skylanders Spyro’s Universe is now your universe, so have fun!</p>
+
+      <!--<span class="date">August 25/11</span>
+      <h1>Article Name</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, setd do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">Read &raquo;</a></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, setd do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">Read &raquo;</a></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, setd do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">Read &raquo;</a></p>
+      <a href="#">LOREM IPSUM &raquo;</a>-->
+    </div>
+  </div>
+  <div class="bottom"></div>
+  <div class="clear"></div>
+</div>
+  <div class="block">
+  <div class="top"><span>Parents</span></div>
+  <div class="middle">
+    <div class="middle-content">
+      <!--<div class="coming-soon">
+        <img src="/images/site/coming-soon-parents.png" />
+      </div>
+      <span class="date">August 25/11</span>-->
+      <h1>Overview</h1>
+      <p>Seamlessly integrating with your children’s toy collection, Skylanders Spyro’s Universe extends and expands their game experience online with the opportunity to work with friends to visit far-away Skylands, earn achievements and points, and unlock new worlds and Skylanders.<br>
+<br>
+And as they defend peace with their Skylanders and friends, you can have peace knowing we have carefully curated every experience to ensure their fun always meets your safety standards.</p>
+      <a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/parents">Read More »</a>
+    </div>
+  </div>
+  <div class="bottom"></div>
+  <div class="clear"></div>
+</div>
+  <div class="block">
+ <div class="top"><span>About</span></div>
+ <div class="middle">
+   <div class="middle-content">
+     <h1>About The Game</h1>
+     <p>Welcome to Skylanders Spyro’s Universe!<br>
+<br>
+Continuing the adventure from console and handheld gaming devices, Skylanders Spyro’s Universe brings your toy collection to life in new ways with an online multiplayer game for you and your friends!<br>
+<br>
+Customize your very own Skyland, explore other islands, manage your collection of Skylanders, play mini-games and chat with friends…in Spyro’s Universe, the fun never ends! But be careful—evil lurks outside the Skylands, and these invaders may attack at any moment! Develop your team of powerful Skylanders and fight back!<br>
+
+</p> 
+    <p><a href="https://web.archive.org/web/20120605181338/http://universe.skylanders.com/about">Read More »</a></p>
+   </div>
+ </div>
+ <div class="bottom"></div>
+ <div class="clear"></div>
+</div>
+  <div class="clear"></div>
+</div>
+
+<div class="clear"></div>
+        </div><!--#primary-->
+        
+          <aside id="content-secondary">
+            
+          </aside><!--#secondary-->
+        	<div class="clear"></div>          
+				        </div><!--#content-container-->        
+      <footer id="footer">
+  <img src="./Skylanders Spyro’s Universe – BETA_files/footer-gradient.png" class="gradient">
+  <div class="primary-content">
+    <a href="https://web.archive.org/web/20120605181338/http://www.activision.com/" target="_blank"><img alt="Activision" src="./Skylanders Spyro’s Universe – BETA_files/activision.png"></a><br>
+     <div class="legal-text">
+       © 2011 Activision Publishing, Inc. Skylanders Spyro’s Adventure and Portal of Power are trademarks, Skylanders Spyro’s
+Universe is a service mark and Activision and Spyro are registered trademarks of Activision Publishing, Inc. All rights
+reserved. Activision makes no guarantees regarding the availability of online play or features, and may modify or
+discontinue online service in its discretion without notice, including for example, ceasing online service for economic
+reasons due to a limited number of players continuing to make use of the service over time. The ESRB rating icon is a
+registered trademark of the Entertainment Software Association. All other trademarks and trade names are the
+properties of their respective owners. Online Interactions Not Rated by the ESRB.
+
+     </div>
+  </div>
+  <div class="secondary-content">
+    
+    <a href="https://web.archive.org/web/20120605181338/http://www.esrb.org/about/privacy_statement_print.jsp" target="_blank"><img alt="Esrb" class="esrb" src="./Skylanders Spyro’s Universe – BETA_files/esrb.png"></a>
+    <div class="clear"></div>
+    <div class="legal-links">
+      <a href="https://web.archive.org/web/20120605181338/http://www.activision.com/atvihub/legal.do" target="_blank">Legal</a> |
+      <a href="https://web.archive.org/web/20120605181338/http://www.activision.com/atvihub/termsandconditions.do?sub=terms" target="_blank">Terms of Service</a> |
+      <a href="https://web.archive.org/web/20120605181338/http://www.activision.com/atvihub/privacy.do?sub=privacy" target="_blank">Privacy Policy</a> |
+      <a href="https://web.archive.org/web/20120605181338/http://www.activision.com/skysupport" target="_blank">Support</a>
+    </div>
+  </div>
+  <div class="clear"></div>
+</footer><!--#footer-->
+      
+      
+
+
+
+      		</div><!--#container-main-->
+  
+
+<div id="sb-container"><div id="sb-overlay"></div><div id="sb-wrapper"><div id="sb-title"><div id="sb-title-inner"></div></div><div id="sb-wrapper-inner"><div id="sb-body"><div id="sb-body-inner"></div><div id="sb-loading"><div id="sb-loading-inner"><span>&nbsp;</span></div></div></div></div><div id="sb-info"><div id="sb-info-inner"><div id="sb-counter"></div><div id="sb-nav"><a id="sb-nav-close" title="Close" onclick="Shadowbox.close()"></a><a id="sb-nav-next" title="Next" onclick="Shadowbox.next()"></a><a id="sb-nav-play" title="Play" onclick="Shadowbox.play()"></a><a id="sb-nav-pause" title="Pause" onclick="Shadowbox.pause()"></a><a id="sb-nav-previous" title="Previous" onclick="Shadowbox.previous()"></a></div></div></div></div></div><div id="give-freely-root-ejkiikneibegknkgimmihdpcbcedgmpo" class="give-freely-root" data-extension-id="ejkiikneibegknkgimmihdpcbcedgmpo" data-extension-name="Volume Booster" style="display: block;"><template shadowrootmode="open"><style>
+  :host {
+    all: initial;
+  }
+
+  .gf-scroll-remove::-webkit-scrollbar {
+    border-radius-bottom-right: 15px;
+  }
+
+  button {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+  .give-freely-close-button:hover {
+    opacity: 0.7;
+  }
+
+  input[type="radio"] {
+    margin-right: 8px;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 1em 0;
+  }
+
+  @media (max-width: 600px), (max-height: 480px) {
+    #give-freely-checkout-popup {
+      display: none !important;
     }
-
-    // Populate DecoID combobox
-    Object.keys(decoIdMap).forEach(function(key) {
-      const option = document.createElement("option");
-      option.text = key;
-      decoIdCombobox.add(option);
-    });
-
-    // Function to apply Variant ID templates
-    function applyTemplate(templateName) {
-      switch (templateName) {
-        case 'Template 1':
-          yearEntry.value = '1';
-          bool1Check.checked = false;
-          bool2Check.checked = true;
-          bool3Check.checked = true;
-          bool4Check.checked = false;
-          decoIdCombobox.value = 'AlternateDeco';
-          generateVariantID();
-          break;
-        case 'Template 2':
-          yearEntry.value = '1';
-          bool1Check.checked = true;
-          bool2Check.checked = false;
-          bool3Check.checked = false;
-          bool4Check.checked = false;
-          decoIdCombobox.value = 'Repose1';
-          generateVariantID();
-        break;
-        case 'Template 3':
-          yearEntry.value = '2';
-          bool1Check.checked = true;
-          bool2Check.checked = false;
-          bool3Check.checked = false;
-          bool4Check.checked = false;
-          decoIdCombobox.value = 'Repose2';
-          generateVariantID();
-        break;
-        case 'Template 4':
-          yearEntry.value = '3';
-          bool1Check.checked = true;
-          bool2Check.checked = false;
-          bool3Check.checked = false;
-          bool4Check.checked = false;
-          decoIdCombobox.value = 'Repose3';
-          generateVariantID();
-        break;
-        case 'Template 5':
-          yearEntry.value = '4';
-          bool1Check.checked = true;
-          bool2Check.checked = false;
-          bool3Check.checked = false;
-          bool4Check.checked = false;
-          decoIdCombobox.value = 'Repose4';
-          generateVariantID();
-        break;
-        default:
-          break;
-      }
-    }
-  </script>
-</body>
-</html>
+  }
+</style><div><div class="gf-app"></div></div></template></div></body></html>
