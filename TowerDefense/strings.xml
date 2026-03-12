@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strings>
+	<loader>
+			<loading_txt id="LOADER_01_TITLE"> <![CDATA[Loading...]]> </loading_txt>
+			<percentFormat id="LOADER_02_PERCENT_FORMAT"><![CDATA[%d%%]]> </percentFormat>
+	</loader>
+	<screens>
+		<title>
+			<logo_txt id="SCREEN_TITLE_01_TITLEA"> <![CDATA[DREADYACHT]]> </logo_txt>
+			<logo_txt2 id="SCREEN_TITLE_02_TITLEB"> <![CDATA[DEFENDERS]]> </logo_txt2>
+			<play_btn id="SCREEN_TITLE_03_PLAY_BTN"> <![CDATA[Play!]]> </play_btn>
+			<nightmare_btn id="SCREEN_TITLE_04_NIGHTMARE_BTN"> <![CDATA[Nightmare Mode]]> </nightmare_btn>
+		</title>
+		
+		<loading>
+			<title_txt id="SCREEN_LOADING_01_TITLE"> <![CDATA[Loading...]]> </title_txt>
+			<percentFormat id="SCREEN_LOADING_02_PERCENT_FORMAT"><![CDATA[%d%%]]> </percentFormat>
+		</loading>
+		
+		<instructions>
+			<title_txt id="SCREEN_INSCTRUCTIONS_01_TITLE"> <![CDATA[Instructions]]> </title_txt>
+			<loading_txt id="SCREEN_INSTRUCTIONS_02_LOADING"> <![CDATA[Loading]]> </loading_txt>
+			<playNow_btn id="SCREEN_INSTRUCTIONS_03_PLAYNOW_BTN"> <![CDATA[Play Now]]> </playNow_btn>
+		</instructions>
+		
+		<levelWin>
+			<roundComplete id="SCREEN_LEVEL_WIN_01_TITLE_ROUND_COMPLETE"> <![CDATA[Round %d Completed!]]> </roundComplete>
+			<tutorialComplete id="SCREEN_LEVEL_WIN_02_TITLE_TUTORIAL_COMPLETE"> <![CDATA[Great Job!]]> </tutorialComplete>
+			<tutorialSkipped id="SCREEN_LEVEL_WIN_03_TITLE_TUTORIAL_SKIPPED"> <![CDATA[Tutorial Complete.]]> </tutorialSkipped>
+			<continue_btn id="SCREEN_LEVEL_WIN_04_CONTINUE_BTN"> <![CDATA[Continue]]> </continue_btn>
+		</levelWin>
+		
+		<gameWin>
+			<title_txt id="SCREEN_GAME_WIN_01_TITLE_GAME_COMPLETE"> <![CDATA[You Win!]]> </title_txt>
+			<continue_btn id="SCREEN_GAME_WIN_02_PLAY_AGAIN_BTN"> <![CDATA[Play Again]]> </continue_btn>
+		</gameWin>
+		
+		<gameLose>
+			<title_txt id="SCREEN_LOSE_01_TITLE"> <![CDATA[You Lose!]]> </title_txt>
+			<retry_btn id="SCREEN_LOSE_02_RETRY_BTN"> <![CDATA[Retry]]> </retry_btn>
+			<quit_btn id="SCREEN_LOSE_03_QUIT_BTN"> <![CDATA[Quit To Title]]> </quit_btn>
+		</gameLose>
+		
+		<animatedIntro>
+		</animatedIntro>
+	</screens>
+	
+	<overlays>
+		<pause>
+			<title_txt id="OVERLAY_PAUSE_01_TITLE"> <![CDATA[Pause]]> </title_txt>
+			<resume_btn id="OVERLAY_PAUSE_01_RESUME_BTN"> <![CDATA[Resume]]> </resume_btn>
+			<restart_btn id="OVERLAY_PAUSE_02_RESTART_BTN"> <![CDATA[Restart]]> </restart_btn>
+			<instructions_btn id="OVERLAY_PAUSE_03_INSTRUCTIONS_BTN"> <![CDATA[Instructions]]> </instructions_btn>
+			<menu_btn id="OVERLAY_PAUSE_04_MENU_BTN"> <![CDATA[Main Menu]]> </menu_btn>
+		</pause>
+		
+		<help>
+			<title_txt id="OVERLAY_HELP_01_TITLE"> <![CDATA[Help]]> </title_txt>
+			<resume_btn id="OVERLAY_HELP_02_RESUME_BTN"> <![CDATA[Resume]]> </resume_btn>
+		</help>
+		
+		<confirmBoxQuit>
+			<title_txt id="OVERLAY_CONFIRM_QUIT_01_TITLE"> <![CDATA[Are You Sure You Want To Quit?]]> </title_txt>
+			<yes_btn id="OVERLAY_CONFIRM_QUIT_02_YES"> <![CDATA[Yes]]> </yes_btn>
+			<no_btn id="OVERLAY_CONFIRM_QUIT_03_NO"> <![CDATA[No]]> </no_btn>
+		</confirmBoxQuit>
+		
+		<confirmBoxRestart>
+			<title_txt id="OVERLAY_CONFIRM_RESTART_01_TITLE"> <![CDATA[Are You Sure You Want To Restart?]]> </title_txt>
+			<yes_btn id="OVERLAY_CONFIRM_RESTART_02_YES"> <![CDATA[Yes]]> </yes_btn>
+			<no_btn id="OVERLAY_CONFIRM_RESTART_03_NO"> <![CDATA[No]]> </no_btn>
+		</confirmBoxRestart>
+		
+		<treasureChest>
+			<title_txt id="OVERLAY_CHEST_01_TITLE"> <![CDATA[Congratulations!]]> </title_txt>
+			<next_btn id="OVERLAY_CHEST_02_NEXT_LEVEL"> <![CDATA[Next]]> </next_btn>
+			<text_txt id="OVERLAY_CHEST_03_COPY"> <![CDATA[The Skies Are<br />Safe Again!]]> </text_txt>
+			<subText_txt id="OVERLAY_CHEST_04_UNLOCK_NIGHTMARE"> <![CDATA[You've Unlocked<br />NIGHTMARE Mode.]]> </subText_txt>
+		</treasureChest>
+		
+		<treasureChestNightmare>
+			<title_txt id="OVERLAY_NIGHTMARE_CHEST_01_TITLE"> <![CDATA[Congratulations!]]> </title_txt>
+			<next_btn id="OVERLAY_NIGHTMARE_CHEST_02_NEXT_LEVEL"> <![CDATA[Next]]> </next_btn>
+			<text_txt id="OVERLAY_NIGHTMARE_CHEST_03_COPY"> <![CDATA[Good Job!<br />But More Dangers Await...]]> </text_txt>
+		</treasureChestNightmare>
+		
+		<characterUnlock>
+			<title_txt id="OVERLAY_UNLOCK_01_TITLE"> <![CDATA[Skylander Unlocked!]]> </title_txt>
+			<next_btn id="OVERLAY_UNLOCK_02_NEXT_LEVEL"> <![CDATA[Next]]> </next_btn>
+		</characterUnlock>
+	</overlays>
+	
+	<ui>
+		<skip_btn id="UI_01_SKIP_BTN"> <![CDATA[Skip]]> </skip_btn>
+	</ui>
+	
+	<messages>
+		<go id="MESSAGES_01_GO"> <![CDATA[GO!]]> </go>
+		<final id="MESSAGES_02_FINALWAVE"> <![CDATA[Final Wave!]]> </final>
+		<nightmare id="MESSAGES_03_NIGHTMARE"> <![CDATA[Survive!]]> </nightmare>
+		
+		<lose id="MESSAGES_03_LOSE"> <![CDATA[Oh no! They're taking over the ship.<br />Hey! Watch the hair.]]> </lose>
+		
+		<win id="MESSAGES_04_WIN_1" level="1"> <![CDATA[Whew, great job!<br />Let's get out of here while we still can!]]> </win>
+		<win id="MESSAGES_04_WIN_2" level="2"> <![CDATA[Wow, you just rocked those guys!<br />We should hit the sky before more show up!]]> </win>
+		<win id="MESSAGES_04_WIN_3" level="3"> <![CDATA[Ha, looks like I showed them who's boss!<br />You helped too.]]> </win>
+		<win id="MESSAGES_04_WIN_4" level="4"> <![CDATA[Fantastic work!<br />You have clearly seen me do this before.]]> </win>
+		<win id="MESSAGES_04_WIN_5" level="5"> <![CDATA[Nice work back there!<br />Let's get back to the Dreadyacht and get out of here.]]> </win>
+		<win id="MESSAGES_04_WIN_6" level="6"> <![CDATA[Boom! We did it!<br />Looks like it's smooth sailing from here, Thanks!]]> </win>
+		
+		<tutorialMessage id="MESSGAES_TUTORIAL_01" step="1"> <![CDATA[Looks like we might need to set down here for a bit,<br />better set up some defenses!]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_02" step="2"> <![CDATA[We'll need some money before we do anything,<br />let's place a Treasure Chest down.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_03" step="3"> <![CDATA[Tap this square to place it down!]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_04" step="4"> <![CDATA[Great Job! Now we can collect the coins the chest makes.<br />Smart crew, you must take after me.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_05" step="5"> <![CDATA[Coins will also fall from the sky. Tap the Coin to Collect It!<br />Hey, flying ships don't exactly pay for themselves.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_06" step="6"> <![CDATA[Keep Collecting Coins!<br />You need them to buy items and Skylanders.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_07" step="7"> <![CDATA[That's enough to ask a Skylander for help.<br />Select Trigger Happy!]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_08" step="8"> <![CDATA[Now place that little guy over here!]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_09" step="9"> <![CDATA[Ah! That Chompy can really mess up my ship!<br />You'd better stop it!]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_10" step="10"> <![CDATA[Thanks!<br />I'm glad I could inspire you with my signature rugged calm.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_11" step="11"> <![CDATA[That was good, but I think we can do better.<br />Let's take him back.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_12" step="12"> <![CDATA[I bet he would be even more powerful on his elemental symbol.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_13" step="13"> <![CDATA[Select a tech-type Skylander like Trigger Happy.<br />Use the money the chest has made; I'll pay you back later.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_14" step="14"> <![CDATA[Now put him on this elemental tile.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_15" step="15"> <![CDATA[Looks like there's some more.<br />I'd get it but it looks like you're in a groove.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_16" step="16"> <![CDATA[Whoa!<br />Who ordered the Chompies well done?]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_17" step="17"> <![CDATA[More?! I don't know if we're gonna get through this time!<br />Try the Anvil Rain item!]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_18" step="18"> <![CDATA[This item calls down anvils from the sky, damaging every enemy.<br />I hope I can buff these dents out of the ship later.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_19" step="19"> <![CDATA[Ha, looks like we taught them a lesson!<br />I always had complete faith in you.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_20" step="20"> <![CDATA[Remember, you can use the items over here any time you need them.]]> </tutorialMessage>
+		<tutorialMessage id="MESSGAES_TUTORIAL_21" step="21"> <![CDATA[I'd show you some of my moves but we should get back on the road.<br />Er, sky -- You know what I mean.]]> </tutorialMessage>
+	</messages>
+</strings>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:9303e75a4e12be8833ef1057898e4076$ -->
+<TextureAtlas imagePath="AnvilRain_sprite.png">
+    <SubTexture name="AnvilRain_0001" x="326" y="296" width="58" height="71" frameX="-68" frameY="-1" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0002" x="186" y="0" width="58" height="115" frameX="-67" frameY="-1" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0003" x="92" y="175" width="58" height="169" frameX="-67" frameY="-2" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0004" x="126" y="0" width="60" height="167" frameX="-66" frameY="-69" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0005" x="64" y="0" width="62" height="175" frameX="-64" frameY="-136" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0006" x="0" y="0" width="64" height="193" frameX="-62" frameY="-203" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0007" x="0" y="193" width="92" height="191" frameX="-48" frameY="-248" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0008" x="384" y="117" width="106" height="111" frameX="-42" frameY="-333" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0009" x="384" y="0" width="126" height="117" frameX="-33" frameY="-332" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0010" x="170" y="383" width="148" height="121" frameX="-22" frameY="-332" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0011" x="0" y="384" width="170" height="125" frameX="-11" frameY="-332" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0012" x="150" y="167" width="192" height="129" frameX="0" frameY="-332" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0013" x="318" y="383" width="192" height="93" frameX="0" frameY="-368" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0014" x="150" y="296" width="176" height="87" frameX="-8" frameY="-368" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0015" x="418" y="228" width="76" height="69" frameX="-59" frameY="-369" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0016" x="342" y="228" width="76" height="67" frameX="-59" frameY="-371" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0017" x="384" y="297" width="76" height="65" frameX="-59" frameY="-373" frameWidth="196" frameHeight="467"/>
+    <SubTexture name="AnvilRain_0018" x="244" y="0" width="76" height="61" frameX="-59" frameY="-376" frameWidth="196" frameHeight="467"/>
+</TextureAtlas>

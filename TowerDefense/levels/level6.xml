@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<level name="Level_X">
+
+	<assetStuff value="Crap that does not matter yet" />
+	
+	<lanes lane1="" lane2="" lane3="" lane4="" lane5="" />
+	<columns column1="" column2="" column3="" column4="" column5="" column6="" column7="" column8="" column9="" />
+	
+	<tiles>
+		<air value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<earth value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<fire value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<life value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<magic value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<tech value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<undead value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<water value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+	</tiles>
+	<nightmareTiles>
+		<air value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<earth value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<fire value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<life value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<magic value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<tech value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<undead value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+		<water value="true" minLane="0" maxLane="4" minColumn="0" maxColumn="8" />
+	</nightmareTiles>
+	
+	<skylander type="TREASURECHEST" />
+	<skylander type="TRIGGERHAPPY" />
+	<skylander type="FLASHWING" />
+	<skylander type="ERUPTOR" />
+	<skylander type="CYNDER" />
+	<skylander type="CHILL" />
+	<skylander type="WHIRLWIND" />
+	<skylander type="ZOOK" />
+	<skylander type="SPYRO" />
+	
+	<startingCoins value="2" />
+
+	<nightmareHealthMod value="1" />
+
+	<waves startingCoinGenerationTime="6">
+
+		<wave name="Wave_1" enemyGenerationTime="22" numEnemies="1">
+            <enemy type="Mohawk" density="1" />
+        </wave>
+		
+		<wave name="Wave_2" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Chompy" density="1" />
+        </wave>
+        
+        <wave name="Wave_3" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Mohawk" density="1" />
+        </wave>
+		
+		<wave name="Wave_4" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Chompy" density="1" />
+        </wave>
+		
+		<wave name="Wave_5" enemyGenerationTime="2" numEnemies="1">
+			<enemy type="Crystal" density="1" />
+		</wave>
+		
+		<wave name="Wave_6" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Chompy" density="1" />
+        </wave>
+        
+        <wave name="Wave_7" enemyGenerationTime="3" numEnemies="1" minLane="3" maxLane="3">
+            <enemy type="Jouster" density="1" />
+        </wave>
+		
+		<wave name="Wave_8" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Chompy" density="1" />
+        </wave>
+		
+		<wave name="Wave_9" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Chompy" density="1" />
+        </wave>
+		
+		<wave name="Wave_10" enemyGenerationTime="5" numEnemies="1">
+            <enemy type="Axe" density="1" />
+        </wave>
+		
+		<wave name="Wave_11" enemyGenerationTime="3" numEnemies="1">
+            <enemy type="Chompy" density="1" />
+        </wave>
+		
+		<wave name="Wave_12" enemyGenerationTime="5" numEnemies="10">
+            <enemy type="Enfuego" density="1" />
+        </wave>
+
+		
+	</waves>
+
+</level>
