@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<skylander name="TreasureChest" cost="2" rechargeTime="4" health="5" primaryAttackSpeed="10" />
+	<skylander name="TriggerHappy" cost="4" rechargeTime="2" health="7" primaryAttackSpeed="2" primaryDamage="1" secondaryAttackSpeed="3" secondaryDamage="1"/>
+	<skylander name="Flashwing" cost="6" rechargeTime="15" health="7" primaryAttackSpeed="2" primaryDamage="2" secondaryAttackSpeed="4" secondaryDamage="2"/>
+	<skylander name="Spyro" cost="8" rechargeTime="15" health="7" primaryAttackSpeed="2" primaryDamage="2" secondaryAttackSpeed="3" secondaryDamage="2"/>
+	<skylander name="Chill" cost="8" rechargeTime="15" health="7" primaryAttackSpeed="2" primaryDamage="2" secondaryAttackSpeed="4" secondaryDamage="2"/>
+	<skylander name="Cynder" cost="10" rechargeTime="15" health="7" primaryAttackSpeed="3" primaryDamage="2" secondaryAttackSpeed="5" secondaryDamage="2"/>
+	<skylander name="Eruptor" cost="8" rechargeTime="15" health="7" primaryAttackSpeed="2" primaryDamage="2" secondaryAttackSpeed="3" secondaryDamage="2"/>
+	<skylander name="Whirlwind" cost="10" rechargeTime="15" health="7" primaryAttackSpeed="4" primaryDamage="2" secondaryAttackSpeed="8" secondaryDamage="5"/>
+	<skylander name="Zook" cost="6" rechargeTime="15" health="7" primaryAttackSpeed="2" primaryDamage="1" secondaryAttackSpeed="2" secondaryDamage="3"/>
+	<skylander name="Cactus" health="3" />
+	
+	<bullet name="RoundBullet" speed="120" />
+	<bullet name="FreezeBullet" speed="120" slowDownFactor="3" slowDownTime="5" />
+	<bullet name="MagmaBall" speed="80" burnTime="1" burnDamage="2" />
+	<bullet name="RainbowVortex" speed="80" />
+	<bullet name="TriggerHappyFlame" speed="1.5" />
+	<bullet name="FlashwingFlame" speed="1" />
+	
+	<bullet name="ChillBasic" speed="100" />
+	<bullet name="EruptorBasic" speed="100" />
+	<bullet name="FlashwingBasic" speed="100" />
+	<bullet name="SpyroBasic" speed="100" />
+	<bullet name="TriggerHappyBasic" speed="100" />
+	<bullet name="WhirlwindBasic" speed="40" />
+	<bullet name="ZookBasic" speed="100" />
+	<bullet name="CynderBasic" speed="100" />
+	<bullet name="CannonBasic" speed="100" />
+	
+	<enemy name="Chompy" attackSpeed="3" damage="1" health="8" speed="-10"/>
+	<enemy name="EnFuego" attackSpeed="0" damage="50" health="5" speed="-15"/>
+	<enemy name="ArkeyanJouster" attackSpeed="3" damage="1" health="12" speed="-8"/>
+	<enemy name="MohawkCyclops" attackSpeed="3" damage="1" health="10" speed="-15"/>
+	<enemy name="Axecutioner" attackSpeed="3" damage="1" health="12" speed="-15" teleportRangeStart="7" teleportRangeEnd="4" teleportRangeDrop="3" teleportCheckSpeed="1.0"/>
+	<enemy name="CrystalGolem" attackSpeed="3" damage="1" health="16" speed="-18" crystalHealth="8" crystalStart="4" crystalEnd="2" crystalCheckSpeed="1.0"/>
+	
+	<nightmareEnemy name="Chompy" attackSpeed="3" damage="1" health="12" speed="-10"/>
+	<nightmareEnemy name="EnFuego" attackSpeed="0" damage="50" health="8" speed="-15"/>
+	<nightmareEnemy name="ArkeyanJouster" attackSpeed="3" damage="1" health="16" speed="-8"/>
+	<nightmareEnemy name="MohawkCyclops" attackSpeed="3" damage="1" health="16" speed="-15"/>
+	<nightmareEnemy name="Axecutioner" attackSpeed="3" damage="1" health="12" speed="-15" teleportRangeStart="7" teleportRangeEnd="4" teleportRangeDrop="3" teleportCheckSpeed="1.0"/>
+	<nightmareEnemy name="CrystalGolem" attackSpeed="3" damage="1" health="18" speed="-18" crystalHealth="10" crystalStart="4" crystalEnd="2" crystalCheckSpeed="1.0"/>
+	
+	<nightmareSkylander name="TreasureChest" cost="2" rechargeTime="4" health="5" primaryAttackSpeed="10" />
+	
+	<ui coinValue="25" />
+</data>

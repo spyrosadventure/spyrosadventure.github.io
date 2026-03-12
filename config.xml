@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config debug="false">
+	<tracking jsfunction="ATVI.analytics.sendData">
+		<name value="dreadyacht_defenders" />
+		<nsType value="hidden" />
+		<actions>
+			<startGame value="start_game" />
+			<beginGame value="begin_game" />
+			<pauseButton value="open_pause_menu" />
+			<menuClick value="pause_menu" />
+			<levelAdvance value="level_advance" />
+			<purchaseCharacter value="select_character" />
+			<useItem value="select_magic_item" />
+			<wowPowEvent value="elemental_powerup" />
+			<endGame value="end_game" />
+			<gameOver value="game_over" />
+		</actions>
+		<details>
+			<win value="win" />
+			<loss value="loss_" />
+			<replay value="replay" />
+			<returnToTitle value="return_to_title" />
+			
+			<tutorialLevel value="tutorial" />
+			
+			<treasureChest value="treasure_chest" />
+			<triggerHappy value="trigger_happy" />
+			<flashwing value="flashwing" />
+			<spyro value="spyro" />
+			<chill value="chill" />
+			<cynder value="cynder" />
+			<eruptor value="eruptor" />
+			<whirlwind value="whirlwind" />
+			<zook value="zook" />
+			
+			<air value="air_powerup" />
+			<earth value="earth_powerup" />
+			<fire value="fire_powerup" />
+			<life value="life_powerup" />
+			<magic value="magic_powerup" />
+			<tech value="tech_powerup" />
+			<undead value="undead_powerup" />
+			<water value="water_powerup" />
+			
+			<anvil value="anvil_rain_item" />
+			<hourglass value="hourglass_item" />
+			<shield value="shield_item" />
+			
+			<resume value="resume" />
+			<restart value="restart" />
+			<mute value="mute" />
+			<mainMenu value="quit_to_title" />
+		</details>
+	</tracking>
+	
+	<strings name="Strings" value="strings.xml" />
+	<loader value="resource_preloader.swf" className="com.activision.skylanders.minigames.towerdefense.screens.Preloader" titleText="title_txt" progressText="progress_txt" progressBar="progress_mc" />
+	<resources>
+		<gameData name="GameData" value="game_data.xml" autoload="true" />
+		<screenResource name="ScreenResource" value="resource_screens.swf" autoload="true" />
+		<soundResource name="SoundResource" value="resource_sounds.swf" autoload="true" />
+		
+		<gameResource name="GameResource" value="resource_game.swf" autoload="false" />
+		<projectileResource name="ProjectileResource" value="sprites/projectiles/resource_projectiles.swf" autoload="false" />
+
+		<skylanderResource name="ChillResource" value="sprites/skylanders/resource_chill.swf" type="Chill" autoload="false" />
+		<skylanderResource name="CynderResource" value="sprites/skylanders/resource_cynder.swf" type="Cynder" autoload="false" />
+		<skylanderResource name="EruptorResource" value="sprites/skylanders/resource_eruptor.swf" type="Eruptor" autoload="false" />
+		<skylanderResource name="FlashwingResource" value="sprites/skylanders/resource_flashwing.swf" type="Flashwing" autoload="false" />
+		<skylanderResource name="SpyroResource" value="sprites/skylanders/resource_spyro.swf" type="Spyro" autoload="false" />
+		<skylanderResource name="TriggerHappyResource" value="sprites/skylanders/resource_triggerhappy.swf" type="TriggerHappy" autoload="false" />
+		<skylanderResource name="WhirlwindResource" value="sprites/skylanders/resource_whirlwind.swf" type="Whirlwind" autoload="false" />
+		<skylanderResource name="ZookResource" value="sprites/skylanders/resource_zook.swf" type="Zook" autoload="false" />
+		
+		<enemyResource name="ArkeyanJousterResource" value="sprites/enemies/resource_jouster.swf" type="ArkeyanJouster" autoload="false" />
+		<enemyResource name="AxecutionerResource" value="sprites/enemies/resource_axecutioner.swf" type="Axecutioner" autoload="false" />
+		<enemyResource name="ChompyResource" value="sprites/enemies/resource_chompy.swf" type="Chompy" autoload="false" />
+		<enemyResource name="CrystalGolemResource" value="sprites/enemies/resource_golem.swf" type="CrystalGolem" autoload="false" />
+		<enemyResource name="EnFuegoResource" value="sprites/enemies/resource_enfuego.swf" type="EnFuego" autoload="false" />
+		<enemyResource name="MohawkCyclopsResource" value="sprites/enemies/resource_mohawk.swf" type="MohawkCyclops" autoload="false" />
+		
+		
+		<levelXML name="LevelOne" value="levels/level1.xml" autoload="false" number="1"/>
+		<levelXML name="LevelTwo" value="levels/level2.xml" autoload="false" number="2"/>
+		<levelXML name="LevelThree" value="levels/level3.xml" autoload="false" number="3"/>
+		<levelXML name="LevelFour" value="levels/level4.xml" autoload="false" number="4"/>
+		<levelXML name="LevelFive" value="levels/level5.xml" autoload="false" number="5"/>
+		<levelXML name="LevelSix" value="levels/level6.xml" autoload="false" number="6"/>
+		
+		<spriteSheetXML name="DeathPoofSpriteXML" value="sprites/shared/DeathPoof_sprite.xml" type="BaseUnit" autoload="false" />
+		
+		<spriteSheetXML name="ChillSpriteXML" value="sprites/skylanders/Chill_sprite.xml" type="Chill" autoload="false" />
+		<spriteSheetXML name="CynderSpriteXML" value="sprites/skylanders/Cynder_sprite.xml" type="Cynder" autoload="false" />
+		<spriteSheetXML name="EruptorSpriteXML" value="sprites/skylanders/Eruptor_sprite.xml" type="Eruptor" autoload="false" />
+		<spriteSheetXML name="FlashwingSpriteXML" value="sprites/skylanders/Flashwing_sprite.xml" type="Flashwing" autoload="false" />
+		<spriteSheetXML name="SpyroSpriteXML" value="sprites/skylanders/Spyro_sprite.xml" type="Spyro" autoload="false" />
+		<spriteSheetXML name="TreasureChestSpriteXML" value="sprites/skylanders/TreasureChest_sprite.xml" type="TreasureChest" autoload="false" />
+		<spriteSheetXML name="TriggerHappySpriteXML" value="sprites/skylanders/TriggerHappy_sprite.xml" type="TriggerHappy" autoload="false" />
+		<spriteSheetXML name="WhirlwindSpriteXML" value="sprites/skylanders/Whirlwind_sprite.xml" type="Whirlwind" autoload="false" />
+		<spriteSheetXML name="ZookSpriteXML" value="sprites/skylanders/Zook_sprite.xml" type="Zook" autoload="false" />
+		
+		<spriteSheetXML name="ArkeyanJousterSpriteXML" value="sprites/enemies/ArkeyanJouster_sprite.xml" type="ArkeyanJouster" autoload="false" />
+		<spriteSheetXML name="AxecutionerSpriteXML" value="sprites/enemies/Axecutioner_sprite.xml" type="Axecutioner" autoload="false" />
+		<spriteSheetXML name="ChompySpriteXML" value="sprites/enemies/chompy_sprite.xml" type="Chompy" autoload="false" />
+		<spriteSheetXML name="CrystalGolemSpriteXML" value="sprites/enemies/CrystalGollum_sprite.xml" type="CrystalGolem" autoload="false" />
+		<spriteSheetXML name="EnFuegoSpriteXML" value="sprites/enemies/chompy_red_sprite.xml" type="EnFuego" autoload="false" />
+		<spriteSheetXML name="MohawkCyclopsSpriteXML" value="sprites/enemies/MohawkCyclops_sprite.xml" type="MohawkCyclops" autoload="false" />
+		
+		<spriteSheetXML name="ProjectileAttacksSpriteXML" value="sprites/projectiles/ProjectileAttacks_sprite.xml" type="Projectiles" autoload="false" />	
+		<spriteSheetXML name="AnvilRainSpriteXML" value="sprites/projectiles/AnvilRain_sprite.xml" type="AnvilRain" autoload="false" />
+	</resources>
+	
+	<controls>
+		<control input="M" value="mute" />
+		<control input="P" value="pause" />
+		<control input="SPACE" value="space" />
+		<control input="CONTROL" value="control" />
+		<control input="ENTER" value="enter" />
+		
+		<control input="W" value="win" />
+		<control input="L" value="lose" />
+	</controls>
+	
+	<scenes>
+		<level name="TutorialLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.TutorialLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="SunnySkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="SunnyIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="SunnyShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="SunnyTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="SunnyBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		<level name="SunnyLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.BaseLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="SunnySkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="SunnyIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="SunnyShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="SunnyTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="SunnyBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		<level name="UndeadLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.BaseLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="UndeadSkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="UndeadIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="UndeadShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="UndeadTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="UndeadBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		<level name="IceLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.BaseLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="IceSkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="IceIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="IceShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="IceTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="IceBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		<level name="EarthLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.BaseLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="EarthSkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="EarthIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="EarthShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="EarthTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="EarthBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		<level name="TechLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.BaseLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="TechSkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="TechIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="TechShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="TechTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="TechBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		<level name="CastleLevel" type="com.activision.skylanders.minigames.TowerDefense.levels.BaseLevel">
+			<entities>
+				<background name="SkyBackground" template="backgroundTemplate">
+					<component name="ScrollComponent" type="com.jetmorgan.game.components.view.BitmapScrollerComponent" params="@timeManager">
+						<speedX value="-15.0" />
+					</component>
+					<asset value="CastleSkyAsset" />
+					<x value="-60" />
+					<layerIndex value="0" />
+					<zIndex value="0" />
+				</background>
+				<background name="IslandBackground" template="backgroundTemplate">
+					<asset value="CastleIslandAsset" />
+					<layerIndex value="1" />
+					<zIndex value="1" />
+					<x value ="35" />
+					<y value="0" />
+				</background>
+				<background name="ShipBackground" template="backgroundTemplate">
+					<asset value="CastleShipAsset" />
+					<layerIndex value="1" />
+					<zIndex value="2" />
+					<x value="-937" />
+					<y value="-372" />
+				</background>
+				<background name="ShipShadow" template="backgroundTemplate">
+					<asset value="ShipShadowAsset" />
+					<layerIndex value="1" />
+					<zIndex value="3" />
+					<x value="-737" />
+					<y value="-372" />
+					<alpha value="0" />
+				</background>
+				<background name="TopPropBackground" template="backgroundTemplate">
+					<asset value="CastleTopPropAsset" />
+					<layerIndex value="1" />
+					<zIndex value="4" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+				<background name="BottomPropBackground" template="backgroundTemplate">
+					<asset value="CastleBottomPropAsset" />
+					<layerIndex value="4" />
+					<zIndex value="2" />
+					<x value="-60" />
+					<y value="0" />
+				</background>
+			</entities>
+		</level>
+		
+		<codeScreen name="TitleScreen" type="com.activision.skylanders.minigames.TowerDefense.screens.TitleScreen">
+			<soundtrack name="TitleMusic" action="play" useFade="false" />
+			<soundtrack name="WinMusic" action="stop" useFade="false" />
+			<soundtrack name="LoseMusic" action="stop" useFade="false" />
+			<transitionIn name="TransitionIn" color="0x000000" type="fade" duration="0.5" x="0" y="0" />
+			<onAnimationComplete action="onComplete"/>
+			<input value="enter" action="onEnterKey" /> 
+			<button name="play_btn" action="onPlay" rollOverSound="MouseOverUI" clickSound="MouseDownUI"/>
+			<button name="nightmare_btn" action="onNightmare" rollOverSound="MouseOverUI" clickSound="MouseDownUI"/>
+			<transitionOut name="TransitionOut" color="0x000000" type="fade" duration="0.5" position="right" />
+		</codeScreen>
+		
+		<screen name="InstructionsScreen" asset="InstructionsScreenAsset" strings="screens.instructions">
+			<transitionIn name="TransitionIn" color="0x000000" type="fade" duration="0.5" x="0" y="0" />
+			<onEnter action="enableButtons" />
+ 			<input value="enter" action="setScene" param="AnimatedIntroScreen" />
+			<button name="playNow_btn" action="setScene" param="AnimatedIntroScreen" rollOverSound="MouseOverUI" clickSound="MouseDownUI"/>
+			<transitionOut name="TransitionOut" color="0x000000" type="fade" duration="0.5" position="right" />
+		</screen>
+		
+		<codeScreen name="LevelWinScreen" type="com.activision.skylanders.minigames.TowerDefense.screens.WinScreen">
+			<soundtrack name="WinMusic" action="play" useFade="false" />
+			<transitionIn name="TransitionIn" color="0x000000" type="fade" duration="0.5" x="0" y="0" />
+			<input value="enter" action="onComplete" /> 
+			<onEnter action="enableButtons" />
+			<button name="continue_btn" action="onComplete" rollOverSound="MouseOverUI" clickSound="MouseDownUI"/>
+			<transitionOut name="TransitionOut" color="0x000000" type="fade" duration="0.5" position="right" />
+		</codeScreen>
+		
+		<codeScreen name="GameLoseScreen" type="com.activision.skylanders.minigames.TowerDefense.screens.LoseScreen">
+			<soundtrack name="LoseMusic" action="play" useFade="false" />
+			<transitionIn name="TransitionIn" color="0x000000" type="fade" duration="0.5" x="0" y="0" />
+			<onAnimationComplete action="enableButtons" />
+			<input value="enter" action="onRetry" /> 
+			<button name="retry_btn" action="onRetry" rollOverSound="MouseOverUI" clickSound="MouseDownUI" />
+			<button name="quit_btn" action="onQuit" rollOverSound="MouseOverUI" clickSound="MouseDownUI" />
+			<transitionOut name="TransitionOut" color="0x000000" type="fade" duration="0.5" position="right" />
+		</codeScreen>
+		
+		<codeScreen name="AnimatedIntroScreen" type="com.activision.skylanders.minigames.TowerDefense.screens.AnimatedScreen">
+			<transitionIn name="TransitionIn" color="0x000000" type="fade" duration="0.5" x="0" y="0" />
+			<onAnimationComplete action="onComplete" />
+			<input value="enter" action="onComplete" /> 
+			<transitionOut name="TransitionOut" color="0x000000" type="fade" duration="0.5" position="right" />
+		</codeScreen>
+		
+		<codeScreen name="LoadingScreen" type="com.activision.skylanders.minigames.TowerDefense.screens.LoadingScreen">
+			<onEnter action="onEnter" />
+		</codeScreen>
+	</scenes>
+	
+	<templates>
+		<backgroundTemplate name="{$name}" type="com.jetmorgan.game.graphic.displayObject.SimpleGraphic" params="@timeManager, @renderManager, @getAsset({$asset})">
+		</backgroundTemplate>
+	</templates>
+	
+	<assets>
+		<sunnyIslandAsset type="GRAPHIC" name="SunnyIslandAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.SunnyIsland" />
+		<sunnySkyAsset type="GRAPHIC" name="SunnySkyAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.SunnySky" />
+		<sunnyShipAsset type="GRAPHIC" name="SunnyShipAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.SunnyShip" />
+		<sunnyTopPropAsset type="GRAPHIC" name ="SunnyTopPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.SunnyTopProp" />
+		<sunnyBottomPropAsset type="GRAPHIC" name ="SunnyBottomPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.SunnyBottomProp" />
+		
+		<undeadIslandAsset type="GRAPHIC" name="UndeadIslandAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadIsland" />
+		<undeadSkyAsset type="GRAPHIC" name="UndeadSkyAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadSky" />
+		<undeadShipAsset type="GRAPHIC" name="UndeadShipAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadShip" />
+		<undeadTopPropAsset type="GRAPHIC" name ="UndeadTopPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadTopProp" />
+		<undeadBottomPropAsset type="GRAPHIC" name ="UndeadBottomPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadBottomProp" />
+		
+		<iceIslandAsset type="GRAPHIC" name="IceIslandAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.IceIsland" />
+		<iceSkyAsset type="GRAPHIC" name="IceSkyAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.IceSky" />
+		<iceShipAsset type="GRAPHIC" name="IceShipAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.IceShip" />
+		<iceTopPropAsset type="GRAPHIC" name ="IceTopPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.IceTopProp" />
+		<iceBottomPropAsset type="GRAPHIC" name ="IceBottomPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.IceBottomProp" />
+		
+		<earthIslandAsset type="GRAPHIC" name="EarthIslandAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthIsland" />
+		<earthSkyAsset type="GRAPHIC" name="EarthSkyAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthSky" />
+		<earthShipAsset type="GRAPHIC" name="EarthShipAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthShip" />
+		<earthTopPropAsset type="GRAPHIC" name ="EarthTopPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthTopProp" />
+		<earthBottomPropAsset type="GRAPHIC" name ="EarthBottomPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthBottomProp" />
+		
+		<techIslandAsset type="GRAPHIC" name="TechIslandAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechIsland" />
+		<techSkyAsset type="GRAPHIC" name="TechSkyAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechSky" />
+		<techShipAsset type="GRAPHIC" name="TechShipAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechShip" />
+		<techTopPropAsset type="GRAPHIC" name ="TechTopPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechTopProp" />
+		<techBottomPropAsset type="GRAPHIC" name ="TechBottomPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechBottomProp" />
+		
+		<castleIslandAsset type="GRAPHIC" name="CastleIslandAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.CastleIsland" />
+		<castleSkyAsset type="GRAPHIC" name="CastleSkyAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.CastleSky" />
+		<castleShipAsset type="GRAPHIC" name="CastleShipAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.CastleShip" />
+		<castleTopPropAsset type="GRAPHIC" name ="CastleTopPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.CastleTopProp" />
+		<castleBottomPropAsset type="GRAPHIC" name ="CastleBottomPropAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.CastleBottomProp" />
+		
+		<shipShadowAsset type="GRAPHIC" name="ShipShadowAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.ShipShadow" />
+		
+		<titleScreenAsset type="SCREEN" name="TitleScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.TitleScreen" />
+		<gameWinScreenAsset type="SCREEN" name="GameWinScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.GameWinScreen" />
+		<levelWinScreenAsset type="SCREEN" name="LevelWinScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.LevelWinScreen" />
+		<gameLoseScreenAsset type="SCREEN" name="GameLoseScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.GameLoseScreen" />
+		
+		<sunnyLoadingScreenAsset type="SCREEN" name="SunnyLoadingScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.SunnyLoadingScreen" />
+		<undeadLoadingScreenAsset type="SCREEN" name="UndeadLoadingScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.UndeadLoadingScreen" />
+		<iceLoadingScreenAsset type="SCREEN" name="IceLoadingScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.IceLoadingScreen" />
+		<earthLoadingScreenAsset type="SCREEN" name="EarthLoadingScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.EarthLoadingScreen" />
+		<techLoadingScreenAsset type="SCREEN" name="TechLoadingScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.TechLoadingScreen" />
+		<castleLoadingScreenAsset type="SCREEN" name="CastleLoadingScreenAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.screens.CastleLoadingScreen" />
+		<pauseOverlayAsset type="OVERLAY" name="PauseOverlayAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.overlays.PauseOverlay" />
+		<confirmOverlayAsset type="OVERLAY" name="ConfirmOverlayAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.overlays.ConfirmOverlay" />
+		<treasureChestOverlayAsset type="OVERLAY" name="TreasureChestOverlayAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.overlays.TreasureChestOverlay" />
+		<characterUnlockOverlayAsset type="OVERLAY" name="CharacterUnlockOverlayAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.overlays.CharacterUnlockOverlay" />
+		<nightmareTreasureChestOverlayAsset type="OVERLAY" name="NightmareTreasureChestOverlayAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.overlays.NightmareTreasureChestOverlay" />
+		
+		<uiAsset type="UI" name="UIAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.ui.GameUI" />
+		
+		<coinAsset type="SPRITE" name="CoinAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.sprites.Coin" />
+		<shadowAsset type="SPRITE" name="ShadowAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.sprites.Shadow" />
+		<healthBarAsset type="SPRITE" name="HealthBarAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.sprites.HealthBar" />
+		
+		<airStampAsset type="GRAPHIC" name="AirStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.AirStamp" />
+		<earthStampAsset type="GRAPHIC" name="EarthStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthStamp" />
+		<fireStampAsset type="GRAPHIC" name="FireStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.FireStamp" />
+		<lifeStampAsset type="GRAPHIC" name="LifeStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.LifeStamp" />
+		<magicStampAsset type="GRAPHIC" name="MagicStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.MagicStamp" />
+		<techStampAsset type="GRAPHIC" name="TechStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechStamp" />
+		<undeadStampAsset type="GRAPHIC" name="UndeadStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadStamp" />
+		<waterStampAsset type="GRAPHIC" name="WaterStampAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.WaterStamp" />
+		
+		<airElementalAnimationAsset type="GRAPHIC" name="AirElementalAnimationAsset" resource="WhirlwindResource" value="com.activision.skylanders.minigames.towerdefense.graphics.AirElementalAnimation" />
+		<earthElementalAnimationAsset type="GRAPHIC" name="EarthElementalAnimationAsset" resource="FlashwingResource" value="com.activision.skylanders.minigames.towerdefense.graphics.EarthElementalAnimation" />
+		<fireElementalAnimationAsset type="GRAPHIC" name="FireElementalAnimationAsset" resource="EruptorResource" value="com.activision.skylanders.minigames.towerdefense.graphics.FireElementalAnimation" />
+		<lifeElementalAnimationAsset type="GRAPHIC" name="LifeElementalAnimationAsset" resource="ZookResource" value="com.activision.skylanders.minigames.towerdefense.graphics.LifeElementalAnimation" />
+		<magicElementalAnimationAsset type="GRAPHIC" name="MagicElementalAnimationAsset" resource="SpyroResource" value="com.activision.skylanders.minigames.towerdefense.graphics.MagicElementalAnimation" />
+		<techElementalAnimationAsset type="GRAPHIC" name="TechElementalAnimationAsset" resource="TriggerHappyResource" value="com.activision.skylanders.minigames.towerdefense.graphics.TechElementalAnimation" />
+		<undeadElementalAnimationAsset type="GRAPHIC" name="UndeadElementalAnimationAsset" resource="CynderResource" value="com.activision.skylanders.minigames.towerdefense.graphics.UndeadElementalAnimation" />
+		<waterElementalAnimationAsset type="GRAPHIC" name="WaterElementalAnimationAsset" resource="ChillResource" value="com.activision.skylanders.minigames.towerdefense.graphics.WaterElementalAnimation" />
+		<genericElementalAnimationAsset type="GRAPHIC" name="GenericElementalAnimationAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.GenericElementalAnimation" />
+		<elementalUnderGlowAsset type="GRAPHIC" name="ElementalUnderGlowAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.graphics.ElementalUnderGlow" />
+		
+		<sunnyAnimationAsset type="ANIMATION" name="SunnyAnimationAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.animations.SunnyAnimation" />
+		<undeadAnimationAsset type="ANIMATION" name="UndeadAnimationAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.animations.UndeadAnimation" />
+		<iceAnimationAsset type="ANIMATION" name="IceAnimationAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.animations.IceAnimation" />
+		<earthAnimationAsset type="ANIMATION" name="EarthAnimationAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.animations.EarthAnimation" />
+		<techAnimationAsset type="ANIMATION" name="TechAnimationAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.animations.TechAnimation" />
+		<castleAnimationAsset type="ANIMATION" name="CastleAnimationAsset" resource="ScreenResource" value="com.activision.skylanders.minigames.towerdefense.animations.CastleAnimation" />
+		
+		<titleMusic type="AUDIO" name="TitleMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.TitleMusic" loop="true" volume="80" category="music" />
+		<tutorialMusic type="AUDIO" name="TutorialMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.TutorialMusic" loop="true" volume="80" category="music" />
+		<sunnyLevelMusic type="AUDIO" name="SunnyLevelMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.SunnyLevelMusic" loop="true" volume="80" category="music"/>
+		<undeadLevelMusic type="AUDIO" name="UndeadLevelMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.UndeadLevelMusic" loop="true" volume="80" category="music"/>
+		<iceLevelMusic type="AUDIO" name="IceLevelMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.IceLevelMusic" loop="true" volume="80" category="music"/>
+		<earthLevelMusic type="AUDIO" name="EarthLevelMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.EarthLevelMusic" loop="true" volume="80" category="music"/>
+		<techLevelMusic type="AUDIO" name="TechLevelMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.TechLevelMusic" loop="true" volume="80" category="music"/>
+		<castleLevelMusic type="AUDIO" name="CastleLevelMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.CastleLevelMusic" loop="true" volume="80" category="music"/>
+		<winMusic type="AUDIO" name="WinMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.WinMusic" loop="true" volume="80" category="music"/>
+		<loseMusic type="AUDIO" name="LoseMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.LoseMusic" loop="true" volume="80" category="music"/>
+		<winBumper type="AUDIO" name="WinBumper" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.WinBumper" loop="false" volume="80" category="music"/>
+		<loseBumper type="AUDIO" name="LoseBumper" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.LoseBumper" loop="false" volume="80" category="music"/>
+		<treasureBumper type="AUDIO" name="TreasureBumper" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.TreasureBumper" loop="false" volume="80" category="music"/>
+		<unlockBumper type="AUDIO" name="UnlockBumper" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.UnlockBumper" loop="false" volume="80" category="music"/>
+		<portalMusic type="AUDIO" name="PortalMusic" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.music.PortalMusic" loop="true" volume="80" category="music"/>
+		
+		<chillAttack1 type="AUDIO" name="ChillAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ChillAttack1" loop="false" volume="10" category="sound" />
+		<chillAttack2 type="AUDIO" name="ChillAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ChillAttack2" loop="false" volume="10" category="sound" />
+		<chillPlaced type="AUDIO" name="ChillPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ChillPlaced" loop="false" volume="40" category="sound" />
+		<chillKill type="AUDIO" name="ChillKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ChillKill" loop="false" volume="40" category="sound" />
+		
+		<cynderAttack1 type="AUDIO" name="CynderAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.CynderAttack1" loop="false" volume="10" category="sound" />
+		<cynderAttack2 type="AUDIO" name="CynderAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.CynderAttack2" loop="false" volume="10" category="sound" />
+		<cynderPlaced type="AUDIO" name="CynderPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.CynderPlaced" loop="false" volume="40" category="sound" />
+		<cynderKill type="AUDIO" name="CynderKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.CynderKill" loop="false" volume="40" category="sound" />
+		
+		<eruptorAttack1 type="AUDIO" name="EruptorAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.EruptorAttack1" loop="false" volume="10" category="sound" />
+		<eruptorAttack2 type="AUDIO" name="EruptorAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.EruptorAttack2" loop="false" volume="10" category="sound" />
+		<eruptorPlaced type="AUDIO" name="EruptorPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.EruptorPlaced" loop="false" volume="40" category="sound" />
+		<eruptorKill type="AUDIO" name="EruptorKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.EruptorKill" loop="false" volume="40" category="sound" />
+		
+		<flashwingAttack1 type="AUDIO" name="FlashwingAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.FlashwingAttack1" loop="false" volume="10" category="sound" />
+		<flashwingAttack2 type="AUDIO" name="FlashwingAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.FlashwingAttack2" loop="false" volume="10" category="sound" />
+		<flashwingPlaced type="AUDIO" name="FlashwingPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.FlashwingPlaced" loop="false" volume="40" category="sound" />
+		<flashwingKill type="AUDIO" name="FlashwingKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.FlashwingKill" loop="false" volume="40" category="sound" />
+		
+		<spyroAttack1 type="AUDIO" name="SpyroAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.SpyroAttack1" loop="false" volume="10" category="sound" />
+		<spyroAttack2 type="AUDIO" name="SpyroAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.SpyroAttack2" loop="false" volume="10" category="sound" />
+		<spyroPlaced type="AUDIO" name="SpyroPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.SpyroPlaced" loop="false" volume="40" category="sound" />
+		<spyroKill type="AUDIO" name="SpyroKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.SpyroKill" loop="false" volume="40" category="sound" />
+		
+		<triggerHappyAttack1 type="AUDIO" name="TriggerHappyAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.TriggerHappyAttack1" loop="false" volume="10" category="sound" />
+		<triggerHappyAttack2 type="AUDIO" name="TriggerHappyAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.TriggerHappyAttack2" loop="false" volume="10" category="sound" />
+		<triggerHappyPlaced type="AUDIO" name="TriggerHappyPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.TriggerHappyPlaced" loop="false" volume="40" category="sound" />
+		<triggerHappyKill type="AUDIO" name="TriggerHappyKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.TriggerHappyKill" loop="false" volume="40" category="sound" />
+		
+		<whirlwindAttack1 type="AUDIO" name="WhirlwindAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.WhirlwindAttack1" loop="false" volume="10" category="sound" />
+		<whirlwindAttack2 type="AUDIO" name="WhirlwindAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.WhirlwindAttack2" loop="false" volume="10" category="sound" />
+		<whirlwindPlaced type="AUDIO" name="WhirlwindPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.WhirlwindPlaced" loop="false" volume="40" category="sound" />
+		<whirlwindKill type="AUDIO" name="WhirlwindKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.WhirlwindKill" loop="false" volume="40" category="sound" />
+		
+		<zookAttack1 type="AUDIO" name="ZookAttack1" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ZookAttack1" loop="false" volume="10" category="sound" />
+		<zookAttack2 type="AUDIO" name="ZookAttack2" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ZookAttack2" loop="false" volume="10" category="sound" />
+		<zookPlaced type="AUDIO" name="ZookPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ZookPlaced" loop="false" volume="40" category="sound" />
+		<zookKill type="AUDIO" name="ZookKill" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ZookKill" loop="false" volume="40" category="sound" />
+		
+		<treasureChestOpen type="AUDIO" name="TreasureChestOpen" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.TreasureChestOpen" loop="false" volume="20" category="sound" />
+		<treasureChestPlaced type="AUDIO" name="TreasureChestPlaced" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.TreasureChestPlaced" loop="false" volume="40" category="sound" />
+		
+		<chompyAttack type="AUDIO" name="ChompyAttack" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ChompyAttack" loop="false" volume="10" category="sound" />
+		<chompyDeath type="AUDIO" name="ChompyDeath" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ChompyDeath" loop="false" volume="15" category="sound" />
+		
+		<enFuegoAttack type="AUDIO" name="EnFuegoAttack" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.EnFuegoAttack" loop="false" volume="10" category="sound" />
+		
+		<mohawkAttack type="AUDIO" name="MohawkAttack" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.MohawkAttack" loop="false" volume="10" category="sound" />
+		<mohawkDeath type="AUDIO" name="MohawkDeath" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.MohawkDeath" loop="false" volume="15" category="sound" />
+		
+		<jousterAttack type="AUDIO" name="JousterAttack" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.JousterAttack" loop="false" volume="10" category="sound" />
+		<jousterDeath type="AUDIO" name="JousterDeath" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.JousterDeath" loop="false" volume="15" category="sound" />
+		
+		<axecutionerAttack type="AUDIO" name="AxecutionerAttack" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.AxecutionerAttack" loop="false" volume="10" category="sound" />
+		<axecutionerDeath type="AUDIO" name="AxecutionerDeath" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.AxecutionerDeath" loop="false" volume="15" category="sound" />
+		
+		<golemAttack type="AUDIO" name="GolemAttack" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.GolemAttack" loop="false" volume="10" category="sound" />
+		<golemDeath type="AUDIO" name="GolemDeath" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.GolemDeath" loop="false" volume="15" category="sound" />
+		
+		<anvilImpact type="AUDIO" name="AnvilImpact" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.AnvilImpact" loop="false" volume="10" category="sound" />
+		
+		<selectSkylander type="AUDIO" name="SelectSkylander" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.SelectSkylander" loop="false" volume="50" category="ui" />
+		<clickCoin type="AUDIO" name="ClickCoin" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.ClickCoin" loop="false" volume="50" category="ui" />
+		<mouseOverUI type="AUDIO" name="MouseOverUI" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.MouseOverUI" loop="false" volume="50" category="ui" />
+		<mouseDownUI type="AUDIO" name="MouseDownUI" resource="SoundResource" value="com.activision.skylanders.minigames.towerdefense.sound.MouseDownUI" loop="false" volume="50" category="ui" />
+		
+		<spriteSheetImage type="SPRITE" cType="BaseUnit" name="DeathPoofSpriteSheetAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.sprites.DeathPoofSpriteSheet" />
+		
+		<spriteSheetImage type="SPRITE" cType="ArkeyanJouster" name="JousterSpriteSheetAsset" resource="ArkeyanJousterResource" value="com.activision.skylanders.minigames.towerdefense.sprites.ArkeyanJousterSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Axecutioner" name="AxecutionerSpriteSheetAsset" resource="AxecutionerResource" value="com.activision.skylanders.minigames.towerdefense.sprites.AxecutionerSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Chompy" name="ChompySpriteSheetAsset" resource="ChompyResource" value="com.activision.skylanders.minigames.towerdefense.sprites.ChompySpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="CrystalGolem" name="CrystalGolemSpriteSheetAsset" resource="CrystalGolemResource" value="com.activision.skylanders.minigames.towerdefense.sprites.CrystalGolemSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="EnFuego" name="EnFuegoSpriteSheetAsset" resource="EnFuegoResource" value="com.activision.skylanders.minigames.towerdefense.sprites.EnFuegoSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="MohawkCyclops" name="MohawkCyclopsSpriteSheetAsset" resource="MohawkCyclopsResource" value="com.activision.skylanders.minigames.towerdefense.sprites.MohawkCyclopsSpriteSheet" />
+		
+		<spriteSheetImage type="SPRITE" cType="Chill" name="ChillSpriteSheetAsset" resource="ChillResource" value="com.activision.skylanders.minigames.towerdefense.sprites.ChillSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Cynder" name="CynderSpriteSheetAsset" resource="CynderResource" value="com.activision.skylanders.minigames.towerdefense.sprites.CynderSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Eruptor" name="EruptorSpriteSheetAsset" resource="EruptorResource" value="com.activision.skylanders.minigames.towerdefense.sprites.EruptorSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Flashwing" name="FlashwingSpriteSheetAsset" resource="FlashwingResource" value="com.activision.skylanders.minigames.towerdefense.sprites.FlashwingSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Spyro" name="SpyroSpriteSheetAsset" resource="SpyroResource" value="com.activision.skylanders.minigames.towerdefense.sprites.SpyroSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="TreasureChest" name="TreasureChestSpriteSheetAsset" resource="GameResource" value="com.activision.skylanders.minigames.towerdefense.sprites.TreasureChestSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="TriggerHappy" name="TriggerHappySpriteSheetAsset" resource="TriggerHappyResource" value="com.activision.skylanders.minigames.towerdefense.sprites.TriggerHappySpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Whirlwind" name="WhirlwindSpriteSheetAsset" resource="WhirlwindResource" value="com.activision.skylanders.minigames.towerdefense.sprites.WhirlwindSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="Zook" name="ZookSpriteSheetAsset" resource="ZookResource" value="com.activision.skylanders.minigames.towerdefense.sprites.ZookSpriteSheet" />
+		
+		<spriteSheetImage type="SPRITE" cType="Projectiles" name="ProjectilesSpriteSheetAsset" resource="ProjectileResource" value="com.activision.skylanders.minigames.towerdefense.sprites.ProjectilesSpriteSheet" />
+		<spriteSheetImage type="SPRITE" cType="AnvilRain" name="AnvilRainSpriteSheetAsset" resource="ProjectileResource" value="com.activision.skylanders.minigames.towerdefense.sprites.AnvilRainSpriteSheet" />
+	</assets>
+</config>
