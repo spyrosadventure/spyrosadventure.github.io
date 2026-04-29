@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opcode Viewer</title>
+
+<style>
+body {
+    margin: 0;
+    background: white;
+    font-family: "Microsoft Sans Serif", sans-serif;
+    font-size: 12px;
+}
+
+#drop {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    color: #888;
+}
+
+#view {
+    display: none;
+    padding: 6px;
+}
+
+.line {
+    white-space: nowrap;
+}
+
+.token {
+    display: inline-block;
+    padding: 0 4px;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.indent {
+    display: inline-block;
+    width: 18px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<div id="drop">Drop XML file</div>
+<div id="view"></div>
+
+<script>
+
+const kGap = 7;
+
+function Token(text, bg, fg, gap, underline=false){
+    return {text, bg, fg, gap, underline};
+}
+
+const keyword   = t => Token(t, "#0000aa", "white", kGap);
+const printTok  = t => Token(t, "#ffc000", "white", kGap);
+const createvar = t => Token(t, "#89509c", "white", kGap);
+const macrotok  = t => Token(t, "#00aa32", "white", kGap);
+const plain     = t => Token(t, null, "black", kGap);
+const ref       = t => Token("^"+t, "#616161", "#d4b2e4", kGap);
+const dref      = t => Token("^^"+t, "#616161", "#d4b2e4", kGap);
+const grey      = t => Token(t, "#616161", "white", kGap);
+const section   = t => Token(t, null, "black", kGap);
+const commenttok= t => Token(t, null, "#707070", kGap);
+
+function deref(r){
+    return r.startsWith("this.") ? r.substring(5) : r;
+}
+
+function getVar(obj, name, attr="value"){
+    for(let v = obj.firstElementChild; v; v = v.nextElementSibling){
+        if(v.tagName === "var" && v.getAttribute("name") === name)
+            return v.getAttribute(attr) || "";
+    }
+    return "";
+}
+
+function getVarRef(obj, name){
+    return deref(getVar(obj, name, "ref"));
+}
+
+function dot2(s){
+    let d = s.indexOf(".");
+    return d >= 0 ? s.substring(d+1) : s;
+}
+
+function resolveName(objects, key){
+    if(!key) return "";
+    if(!objects[key]) return dot2(key);
+
+    let obj = objects[key];
+
+    let ref = obj.getAttribute("ref");
+    if(ref) return dot2(ref);
+
+    let varName = getVar(obj, "_varName");
+    if(varName) return varName;
+
+    let name = getVar(obj, "_name");
+    if(name) return name;
+
+    return dot2(key);
+}
+
+function resolveStack(objects, stackKey, sep=" "){
+    if(!stackKey || !objects[stackKey]) return "";
+
+    let stackObj = objects[stackKey];
+    let parts = [];
+
+    for(let li = stackObj.firstElementChild; li; li = li.nextElementSibling){
+        if(li.tagName !== "listitem") continue;
+
+        let k = deref(li.getAttribute("ref"));
+        let n = resolveName(objects, k);
+        if(n) parts.push(n);
+    }
+
+    return parts.join(sep);
+}
+
+function resolveLHS(objects, e){
+    return resolveStack(objects, getVarRef(e, "_LHS"));
+}
+
+function resolveRHS(objects, e){
+    let rhsKey = getVarRef(e, "_RHS");
+    if(!rhsKey || !objects[rhsKey]) return "";
+
+    let rhsObj = objects[rhsKey];
+    let rhsType = rhsObj.getAttribute("type");
+
+    if(rhsType === "RHSReferenceStack")
+        return resolveStack(objects, rhsKey);
+
+    let op1Key = getVarRef(rhsObj, "_varOp1");
+    if(!op1Key || !objects[op1Key]) return "";
+
+    let op1 = objects[op1Key];
+
+    if(op1.getAttribute("count","0") === "0")
+        return getVar(op1, "_value");
+
+    return resolveStack(objects, op1Key);
+}
+
+function renderOp(objects, op){
+    let e = op.elem;
+    let type = op.type;
+    let r = [];
+
+    if (type === "OpPreScript") return [section("PRESCRIPT")];
+    if (type === "OpStartUp") return [section("STARTUP")];
+    if (type === "OpShutDown") return [section("SHUTDOWN")];
+    if (type === "OpStructureSection") return [section("STRUCTURES")];
+    if (type === "OpMacroSection") return [section("MACROS")];
+
+    if (type === "OpComment")
+        return [commenttok("// " + getVar(e,"_comment"))];
+
+    if (type === "OpBlock") {
+        r.push(keyword("block"));
+        let c = getVar(e,"_comment");
+        if (c) r.push(plain(c));
+        return r;
+    }
+
+    if (type === "OpIfElse") return [keyword("if")];
+
+    if (type === "OpFlow") {
+        let fv = getVar(e,"_flowVal");
+        return [plain("flow"), grey(fv || "continue")];
+    }
+
+    if (type === "OpFlowLoop") return [plain("flow"), grey("loop")];
+
+    if (type === "OpFlowBuiltInBehavior")
+        return [Token("flow continue", null, "black", kGap, true)];
+
+    if (type === "OpFlowMacro") return [plain("flow macro")];
+    if (type === "OpFlowBehavior") return [plain("flow end")];
+
+    if (type === "OpCreateVariable" || type === "OpCreateVariableArray") {
+        let container = resolveName(objects, getVarRef(e,"_varContainerType"));
+        let varName = getVar(e,"_varName");
+
+        r.push(createvar("create variable"));
+        if (container) r.push(plain(container));
+        if (varName) r.push(grey(varName));
+        return r;
+    }
+
+    if (type === "OpSetValue") {
+        let lhs = resolveLHS(objects,e);
+        let rhs = resolveRHS(objects,e);
+
+        r.push(keyword("set value"));
+        if (lhs) r.push(ref(lhs));
+        r.push(plain("="));
+        if (rhs) r.push(grey(rhs));
+        return r;
+    }
+
+    if (type === "OpCheckValue") {
+        let lhs = resolveLHS(objects,e);
+        let relOp = getVar(e,"_relOperator");
+        let rhs = resolveRHS(objects,e);
+
+        r.push(keyword("check value"));
+        if (lhs) r.push(ref(lhs));
+        if (relOp) r.push(grey(relOp));
+        if (rhs) r.push(grey(rhs));
+        return r;
+    }
+
+    if (type === "OpSetReference") {
+        let lhs = resolveLHS(objects,e);
+        let rhs = resolveRHS(objects,e);
+
+        r.push(keyword("set *reference"));
+        if (lhs) r.push(ref(lhs));
+        r.push(plain("to"));
+        if (rhs) r.push(grey(rhs));
+        return r;
+    }
+
+    if (type === "OpCheckReference") {
+        let lhs = resolveLHS(objects,e);
+        let rhs = resolveRHS(objects,e);
+
+        r.push(keyword("check *reference"));
+        if (lhs) r.push(ref(lhs));
+        r.push(plain("="));
+        if (rhs) r.push(grey(rhs));
+        return r;
+    }
+
+    if (type === "OpChangeMembership") {
+        let setName = resolveStack(objects, getVarRef(e,"_LHS"));
+        let combineOp = getVar(e,"_combineOp");
+        let addName = resolveStack(objects, getVarRef(e,"_RHS"));
+
+        r.push(keyword("set [set]"));
+        if (setName) r.push(grey(setName));
+        r.push(plain("to"));
+        if (combineOp) r.push(grey(combineOp));
+        if (addName) r.push(grey(addName));
+        return r;
+    }
+
+    if (type === "OpLoopValue") {
+        let rhs = resolveRHS(objects,e);
+        return [keyword("loop value"), ...(rhs ? [grey(rhs)] : [])];
+    }
+
+    if (type === "OpIncValue") {
+        let lhs = resolveLHS(objects,e);
+        return [keyword("inc value"), ...(lhs ? [ref(lhs)] : [])];
+    }
+
+    if (type === "OpDecValue") {
+        let lhs = resolveLHS(objects,e);
+        return [keyword("dec value"), ...(lhs ? [ref(lhs)] : [])];
+    }
+
+    if (type === "OpSlideValue") {
+        let lhs = resolveLHS(objects,e);
+        let rhs = resolveRHS(objects,e);
+
+        return [
+            keyword("slide value"),
+            ...(lhs ? [ref(lhs)] : []),
+            plain("to"),
+            ...(rhs ? [grey(rhs)] : [])
+        ];
+    }
+
+    if (type === "OpSetBehavior") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("set behavior"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpPrint") {
+        let npName  = resolveStack(objects, getVarRef(e,"_NP"));
+        let dev     = getVar(e,"_dev");
+        let comment = getVar(e,"_comment");
+
+        return [
+            printTok("print"),
+            ...(npName ? [grey(npName)] : []),
+            plain("to"),
+            ...(dev ? [grey(dev)] : []),
+            plain("with text"),
+            ...(comment ? [commenttok(comment)] : [])
+        ];
+    }
+
+    if (type === "OpRemove") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("remove"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpSpawn") {
+        let np   = resolveStack(objects, getVarRef(e,"_NP"));
+        let pos2 = resolveStack(objects, getVarRef(e,"_positionRHS"));
+
+        return [
+            keyword("clone"),
+            ...(np ? [dref(np)] : []),
+            plain("at"),
+            ...(pos2 ? [grey(pos2)] : [])
+        ];
+    }
+
+    if (type === "OpControl") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("control"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpDisplace") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("displace"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpMoveTo") {
+        let np  = resolveStack(objects, getVarRef(e,"_NP"));
+        let dst = resolveStack(objects, getVarRef(e,"_destRHS"));
+
+        return [
+            keyword("move to"),
+            ...(np ? [grey(np)] : []),
+            ...(dst ? [grey(dst)] : [])
+        ];
+    }
+
+    if (type === "OpMoveFrom") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("move from"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpTurnTo") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("turn to"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpTeleportTo") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("teleport to"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpCheckFOV") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("check fov"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpCheckMembership") {
+        let lhs = resolveStack(objects, getVarRef(e,"_LHS"));
+        return [keyword("check [set]"), ...(lhs ? [grey(lhs)] : [])];
+    }
+
+    if (type === "OpFindVariable") {
+        let container = resolveName(objects, getVarRef(e,"_varContainerType"));
+        let varName = getVar(e,"_varName");
+        let filter  = getVar(e,"_filter");
+        let owner   = resolveStack(objects, getVarRef(e,"_owner"));
+
+        return [
+            keyword("find variable"),
+            ...(container ? [plain(container)] : []),
+            ...(varName ? [ref(varName)] : []),
+            ...(filter ? [grey(filter)] : []),
+            plain("owned by"),
+            ...(owner ? [grey(owner)] : [])
+        ];
+    }
+
+    if (type === "OpFindSubSet") {
+        let lhs = resolveStack(objects, getVarRef(e,"_LHS"));
+        return [keyword("find subset"), ...(lhs ? [grey(lhs)] : [])];
+    }
+
+    if (type === "OpForEach") {
+        let lhs = resolveLHS(objects,e);
+        return [keyword("for each"), ...(lhs ? [grey(lhs)] : [])];
+    }
+
+    if (type === "OpReset") {
+        let np = resolveStack(objects, getVarRef(e,"_NP"));
+        return [keyword("reset"), ...(np ? [grey(np)] : [])];
+    }
+
+    if (type === "OpUseMacro") {
+        let macroName = "";
+        let npKey = getVarRef(e,"_NP");
+
+        if (npKey && objects[npKey]) {
+            let li = objects[npKey].querySelector("listitem");
+            if (li) {
+                let defKey = deref(li.getAttribute("ref"));
+                if (objects[defKey])
+                    macroName = getVar(objects[defKey],"_name");
+            }
+        }
+
+        return [macrotok(macroName || "use macro")];
+    }
+
+    if (type === "OpMacroInterface") return [plain("INTERFACE")];
+
+    if (type === "OpMacroParameter") {
+        let container = resolveName(objects, getVarRef(e,"_varContentsType"));
+        let varName   = getVar(e,"_varName");
+        let combineOp = getVar(e,"_combineOp");
+        let rhs       = resolveRHS(objects,e);
+
+        return [
+            keyword("tag"),
+            ...(container ? [plain(container)] : []),
+            ...(varName ? [grey(varName)] : []),
+            ...(combineOp ? [grey(combineOp)] : []),
+            ...(rhs ? [grey(rhs)] : [])
+        ];
+    }
+
+    if (type === "OpDefineMacro" || type === "OpDefineStructure") {
+        let name = getVar(e,"_name");
+        let publicity = getVar(e,"_publicity");
+
+        return [
+            macrotok(name || type),
+            grey(publicity || "no publicity?")
+        ];
+    }
+
+    return [plain(type)];
+}
+
+const drop = document.getElementById("drop");
+const view = document.getElementById("view");
+
+drop.ondrop = e=>{
+    e.preventDefault();
+    drop.style.display="none";
+    view.style.display="block";
+
+    let file=e.dataTransfer.files[0];
+    let reader=new FileReader();
+
+    reader.onload=()=>{
+        let xml=new DOMParser().parseFromString(reader.result,"text/xml");
+
+        let objects={};
+        xml.querySelectorAll("object").forEach(o=>{
+            let r=o.getAttribute("refname");
+            if(r) objects[r]=o;
+        });
+
+        let opcodes=[];
+        if(objects["OpCodeList"]){
+            for(let li of objects["OpCodeList"].children){
+                if(li.tagName!=="listitem") continue;
+
+                let key=deref(li.getAttribute("ref"));
+                if(!objects[key]) continue;
+
+                let elem=objects[key];
+
+                let bp=getVar(elem,"_branchPC");
+
+                opcodes.push({
+                    elem,
+                    type:elem.getAttribute("type"),
+                    branchPC: bp?parseInt(bp):-1
+                });
+            }
+        }
+
+        view.innerHTML="";
+        let tree=loadAiFile(objects,opcodes);
+        renderTree(tree);
+    };
+
+    reader.readAsText(file);
+};
+
+drop.ondragover=e=>e.preventDefault();
+
+function loadAiFile(objects, opcodes){
+    let root = [];
+    let blockStack = [];
+
+    let prescriptItem = null;
+    let sectionItem = null;
+    let sectionEnd = -1;
+
+    function currentParent(){
+        return blockStack.length===0 ? sectionItem : blockStack.at(-1).node;
+    }
+
+    function isFlow(type){
+        return type==="OpFlow"
+            || type==="OpFlowMacro"
+            || type==="OpFlowLoop"
+            || type==="OpFlowBehavior"
+            || type==="OpFlowBuiltInBehavior";
+    }
+
+    function isSubSection(type){
+        return type==="OpStartUp"
+            || type==="OpShutDown"
+            || type==="OpStructureSection"
+            || type==="OpMacroSection";
+    }
+
+    function add(parent,tokens){
+        let node={tokens,children:[]};
+        if(parent) parent.children.push(node);
+        else root.push(node);
+        return node;
+    }
+
+    for(let i=0;i<opcodes.length;i++){
+
+        while(blockStack.length && i>=blockStack.at(-1).end)
+            blockStack.pop();
+
+        if(sectionEnd>=0 && i>=sectionEnd){
+            sectionItem=prescriptItem;
+            sectionEnd=-1;
+        }
+
+        let op=opcodes[i];
+
+        if(op.type==="OpPreScript"){
+            let tokens=renderOp(objects,op);
+            prescriptItem=add(null,tokens);
+            sectionItem=prescriptItem;
+            blockStack=[];
+            sectionEnd=-1;
+            continue;
+        }
+
+        if(isSubSection(op.type)){
+            let tokens=renderOp(objects,op);
+            sectionItem=add(prescriptItem,tokens);
+            blockStack=[];
+            sectionEnd=(op.branchPC>0)?i+op.branchPC:-1;
+            continue;
+        }
+
+        let parent=currentParent();
+        let tokens=renderOp(objects,op);
+        let item=add(parent,tokens);
+
+        if(isFlow(op.type)){
+            if(op.type==="OpFlowBuiltInBehavior"||op.type==="OpFlowBehavior"){
+                if(blockStack.length) blockStack.pop();
+                continue;
+            }
+            if(blockStack.length) blockStack.pop();
+            continue;
+        }
+
+        if(op.branchPC>0){
+            blockStack.push({node:item,end:i+op.branchPC});
+        }
+    }
+
+    return root;
+}
+
+function renderTree(nodes, depth=0){
+    for(let n of nodes){
+        let row=document.createElement("div");
+        row.className="row";
+
+        for(let i=0;i<depth;i++){
+            let ind=document.createElement("span");
+            ind.className="indent";
+            row.appendChild(ind);
+        }
+
+        for(let tok of n.tokens){
+            let span=document.createElement("span");
+            span.className="token";
+
+            if(tok.bg){
+                span.classList.add("pill");
+                span.style.background=tok.bg;
+                span.style.color=tok.fg;
+                span.textContent=tok.text;
+            }else{
+                span.style.color=tok.fg;
+                span.textContent=tok.text;
+                if(tok.underlined) span.classList.add("underline");
+            }
+
+            row.appendChild(span);
+        }
+
+        view.appendChild(row);
+        renderTree(n.children, depth+1);
+    }
+}
+
+</script>
+
+</body>
+</html>
